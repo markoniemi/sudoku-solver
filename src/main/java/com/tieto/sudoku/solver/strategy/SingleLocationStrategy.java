@@ -8,10 +8,10 @@ public class SingleLocationStrategy extends AbstractStrategy{
 
 	public int applyToLine(Line line) {
 		int changeCount = 0;
-		for (int candidate = 1; candidate < 10; candidate++) {
+		for (var candidate = 1; candidate < 10; candidate++) {
 			int locationCount = 0;
 			int foundLocation = 0;
-			for (int location = 0; location < Line.LENGTH; location++) {
+			for (var location = 0; location < Line.LENGTH; location++) {
 				Cell cell = line.getCell(location);
 				if (cell.intValue() == Cell.EMPTY
 						&& cell.isCandidate(candidate)) {

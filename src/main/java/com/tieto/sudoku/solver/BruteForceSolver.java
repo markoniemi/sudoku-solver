@@ -46,7 +46,7 @@ public class BruteForceSolver implements Solver {
         if (board.getCell(row, column).isClue()) {
             return solve(nextIndex);
         } else {
-            for (int value = 1; value < 10; value++) {
+            for (var value = 1; value < 10; value++) {
                 board.setValue(row, column, value);
                 if (board.isLegal()) {
                     boolean solved = solve(nextIndex);
@@ -73,7 +73,7 @@ public class BruteForceSolver implements Solver {
         if (board.getCell(row, column).isClue()) {
             findAllSolutions(nextIndex);
         } else {
-            for (int value = 1; value < 10; value++) {
+            for (var value = 1; value < 10; value++) {
                 board.setValue(row, column, value);
                 if (board.isLegal()) {
                     findAllSolutions(nextIndex);

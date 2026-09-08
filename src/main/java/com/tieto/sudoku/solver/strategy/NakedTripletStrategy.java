@@ -47,7 +47,7 @@ package com.tieto.sudoku.solver.strategy;
 //            // check that this is not an old hidden pair that is
 //            // already found on last call
 //            boolean otherCandidatesFound = false;
-//            for (int location = 0; location < Line.LENGTH; location++) {
+//            for (var location = 0; location < Line.LENGTH; location++) {
 //                if (hasSameLocations()
 //                        location == candidatePair1.getLocation()
 //                        || location == candidatePair2.getLocation()) {
@@ -81,9 +81,9 @@ package com.tieto.sudoku.solver.strategy;
 //    protected List<CandidateGroup> findCandidateGroup(Line line) {
 //        List<CandidateGroup> candidateGroups = new ArrayList<CandidateGroup>();
 //        CandidateGroup candidateGroup = new CandidateGroup();
-//        for (int location = 0; location < Line.LENGTH; location++) {
+//        for (var location = 0; location < Line.LENGTH; location++) {
 //            int candidateCount = 0;
-//            for (int candidate = 1; candidate < 10; candidate++) {
+//            for (var candidate = 1; candidate < 10; candidate++) {
 //                if (line.getCell(location).isCandidate(candidate)) {
 //                    candidateGroup.setLocation(location);
 //                    candidateGroup.setCandidate(candidate);

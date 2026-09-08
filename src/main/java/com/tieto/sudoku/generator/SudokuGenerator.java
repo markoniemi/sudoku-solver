@@ -75,7 +75,7 @@ public class SudokuGenerator {
         Location location = locationGenerator.nextLocation();
         int row = location.getRow();
         int column = location.getColumn();
-        for (int value = 1; value < 10; value++) {
+        for (var value = 1; value < 10; value++) {
             board.setValue(row, column, value);
             board.getCell(row, column).setClue(true);
             if (board.isLegal()) {

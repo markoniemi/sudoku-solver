@@ -39,7 +39,7 @@ public class HiddenPairStrategy extends AbstractStrategy {
             // check that this is not an old hidden pair that is
             // already found on last call
             boolean otherCandidatesFound = false;
-            for (int candidate = 1; candidate < 10; candidate++) {
+            for (var candidate = 1; candidate < 10; candidate++) {
                 if (candidate == linePair1.getValue()
                         || candidate == linePair2.getValue()) {
                     continue;
@@ -78,9 +78,9 @@ public class HiddenPairStrategy extends AbstractStrategy {
     public List<LinePair> findPairs(Line line) {
         List<LinePair> pairs = new ArrayList<LinePair>();
         LinePair pair = new LinePair();
-        for (int candidate = 1; candidate < 10; candidate++) {
+        for (var candidate = 1; candidate < 10; candidate++) {
             int candidateCount = 0;
-            for (int location = 0; location < Line.LENGTH; location++) {
+            for (var location = 0; location < Line.LENGTH; location++) {
                 if (line.getCell(location).isCandidate(candidate)) {
                     pair.setValue(candidate);
                     candidateCount++;

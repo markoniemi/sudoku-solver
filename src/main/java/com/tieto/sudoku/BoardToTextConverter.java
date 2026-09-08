@@ -18,7 +18,7 @@ public class BoardToTextConverter implements Converter<Board, String> {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(LINE_BREAK);
         stringBuilder.append(HORIZONTAL_LINE);
-        for (int row = 0; row < Line.LENGTH; row++) {
+        for (var row = 0; row < Line.LENGTH; row++) {
             appendLine(board, stringBuilder, board.getRow(row));
         }
         return stringBuilder.toString();
@@ -28,7 +28,7 @@ public class BoardToTextConverter implements Converter<Board, String> {
         StringBuilder line1 = new StringBuilder();
         StringBuilder line2 = new StringBuilder();
         StringBuilder line3 = new StringBuilder();
-        for (int column = 0; column < Line.LENGTH; column++) {
+        for (var column = 0; column < Line.LENGTH; column++) {
             Cell cell = line.getCell(column);
             line1.append("|");
             line2.append("|");
@@ -63,7 +63,7 @@ public class BoardToTextConverter implements Converter<Board, String> {
     private void appendCandidates(StringBuilder line1, StringBuilder line2,
             StringBuilder line3, Cell cell) {
         StringBuilder currentLine = null;
-        for (int candidate = 1; candidate < 10; candidate++) {
+        for (var candidate = 1; candidate < 10; candidate++) {
             if (candidate < 4) {
                 currentLine = line1;
             } else if (candidate < 7) {

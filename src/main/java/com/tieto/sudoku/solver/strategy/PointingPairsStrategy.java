@@ -17,7 +17,7 @@ public class PointingPairsStrategy extends AbstractStrategy {
         calculateCandidates(board);
         int changeCount = 0;
         // go through all boxes
-        for (int boxNumber = 0; boxNumber < Board.BOX_COUNT; boxNumber++) {
+        for (var boxNumber = 0; boxNumber < Board.BOX_COUNT; boxNumber++) {
             // remove candidates in horizontal lines
             changeCount += removeCandidatesInLines(board, boxNumber,
                     Direction.HORIZONTAL);
@@ -48,7 +48,7 @@ public class PointingPairsStrategy extends AbstractStrategy {
             // remove candidates on this line, except the ones that are in
             // the same box as the candidateInLine
             boolean otherCandidatesFound = false;
-            for (int location = 0; location < Line.LENGTH; location++) {
+            for (var location = 0; location < Line.LENGTH; location++) {
                 // skip values that are in the same box as the
                 // candidateInLine
                 if (direction == Direction.HORIZONTAL) {
@@ -90,12 +90,12 @@ public class PointingPairsStrategy extends AbstractStrategy {
     protected List<CandidateLine> getCandidatesInLine(Box box,
             Direction direction) {
         List<CandidateLine> candidateLines = new ArrayList<CandidateLine>();
-        for (int candidate = 1; candidate < 10; candidate++) {
-            for (int row = 0; row < Box.SIZE; row++) {
+        for (var candidate = 1; candidate < 10; candidate++) {
+            for (var row = 0; row < Box.SIZE; row++) {
                 if (lineHasCandidate(box, row, candidate, direction)) {
                     boolean isCandidatesInLine = true;
                     // If a row has candidate, the other two rows must not.
-                    for (int j = 0; j < Box.SIZE; j++) {
+                    for (var j = 0; j < Box.SIZE; j++) {
                         if (row == j) {
                             continue;
                         } else {
@@ -119,14 +119,14 @@ public class PointingPairsStrategy extends AbstractStrategy {
     private boolean lineHasCandidate(Box box, int lineNumber, int candidate,
             Direction direction) {
         if (direction == Direction.HORIZONTAL) {
-            for (int column = 0; column < Box.SIZE; column++) {
+            for (var column = 0; column < Box.SIZE; column++) {
                 if (box.getCell(lineNumber, column).isCandidate(candidate)) {
                     return true;
                 }
             }
             return false;
         } else {
-            for (int row = 0; row < Box.SIZE; row++) {
+            for (var row = 0; row < Box.SIZE; row++) {
                 if (box.getCell(row, lineNumber).isCandidate(candidate)) {
                     return true;
                 }

@@ -40,7 +40,7 @@ public class NakedGroupStrategy extends AbstractStrategy {
 	 */
 	List<CandidateGroup> findCandidateGroups(Line line) {
 		List<CandidateGroup> candidateGroups = new ArrayList<CandidateGroup>();
-		for (int location = 0; location < Line.LENGTH; location++) {
+		for (var location = 0; location < Line.LENGTH; location++) {
 			Cell cell = line.getCell(location);
 			if (!cell.isClue() && cell.countCandidates() <= groupSize
 					&& cell.countCandidates() > 0) {
@@ -106,11 +106,11 @@ public class NakedGroupStrategy extends AbstractStrategy {
 	// TODO calculate the count of changes
 	private int removeNonNakedGroupCandidates(List<Integer> allCandidates,
 			List<Integer> nakedGroupLocations, Line line) {
-		for (int location = 0; location < Line.LENGTH; location++) {
+		for (var location = 0; location < Line.LENGTH; location++) {
 			Cell cell = line.getCell(location);
 			if (!nakedGroupLocations.contains(location)) {
 				cell.cleanCandidates();
-				for (Integer candidate : allCandidates) {
+				for (var candidate : allCandidates) {
 					cell.setCandidate(candidate);
 				}
 			}

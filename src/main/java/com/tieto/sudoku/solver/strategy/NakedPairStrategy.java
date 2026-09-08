@@ -49,7 +49,7 @@ public class NakedPairStrategy extends AbstractStrategy {
             // check that this is not an old hidden pair that is
             // already found on last call
             boolean otherCandidatesFound = false;
-            for (int location = 0; location < Line.LENGTH; location++) {
+            for (var location = 0; location < Line.LENGTH; location++) {
                 if (location == candidatePair1.getLocation()
                         || location == candidatePair2.getLocation()) {
                     continue;
@@ -78,7 +78,7 @@ public class NakedPairStrategy extends AbstractStrategy {
             CandidatePair candidatePair1, CandidatePair candidatePair2) {
         // remove two candidates from all other locations.
         int changeCount = 0;
-        for (int location = 0; location < Line.LENGTH; location++) {
+        for (var location = 0; location < Line.LENGTH; location++) {
             if (location == candidatePair1.getLocation()
                     || location == candidatePair2.getLocation()) {
                 continue;
@@ -103,9 +103,9 @@ public class NakedPairStrategy extends AbstractStrategy {
     protected List<CandidatePair> findCandidatePairs(Line line) {
         List<CandidatePair> pairs = new ArrayList<CandidatePair>();
         CandidatePair pair = new CandidatePair();
-        for (int location = 0; location < Line.LENGTH; location++) {
+        for (var location = 0; location < Line.LENGTH; location++) {
             int candidateCount = 0;
-            for (int candidate = 1; candidate < 10; candidate++) {
+            for (var candidate = 1; candidate < 10; candidate++) {
                 if (line.getCell(location).isCandidate(candidate)) {
                     pair.setLocation(location);
                     candidateCount++;
