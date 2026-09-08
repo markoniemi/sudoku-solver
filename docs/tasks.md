@@ -9,10 +9,10 @@
 8. [x] commit changes to version control when tests pass
 9. [x] push changes to remote branch, ask permission first
 10. [x] validate that github actions run successfully
-11. [ ] create a plan to update project code, add phases
-12. [ ] update project code
-13. [ ] test project after updating code
-14. [ ] commit changes to version control when tests pass
-15. [ ] push changes to remote branch, ask permission first
-16. [ ] validate that github actions run successfully
+11. [x] create a plan to update project code, add phases
+12. [x] update project code
+13. [x] test project after updating code
+14. [x] commit changes to version control when tests pass
+15. [x] push changes to remote branch, ask permission first
+16. [x] validate that github actions run successfully
 17. [ ] create a pull request for the changes
