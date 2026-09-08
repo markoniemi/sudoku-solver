@@ -14,8 +14,8 @@ public class Board {
 
     public Board() {
         data = new Cell[Line.LENGTH][Line.LENGTH];
-        for (int i = 0; i < data.length; i++) {
-            for (int j = 0; j < data[i].length; j++) {
+        for (var i = 0; i < data.length; i++) {
+            for (var j = 0; j < data[i].length; j++) {
                 data[i][j] = new Cell();
             }
         }
@@ -24,8 +24,8 @@ public class Board {
     @SuppressWarnings("PMD.ArrayIsStoredDirectly")
     public Board(int[][] data) {
         this.data = new Cell[Line.LENGTH][Line.LENGTH];
-        for (int i = 0; i < data.length; i++) {
-            for (int j = 0; j < data[i].length; j++) {
+        for (var i = 0; i < data.length; i++) {
+            for (var j = 0; j < data[i].length; j++) {
                 this.data[i][j] = new Cell(data[i][j]);
             }
         }
@@ -33,7 +33,7 @@ public class Board {
 
     public Line getColumn(int columnNumber) {
         Line column = new Line();
-        for (int i = 0; i < data.length; i++) {
+        for (var i = 0; i < data.length; i++) {
             column.setCell(i, data[i][columnNumber]);
         }
         return column;
@@ -41,7 +41,7 @@ public class Board {
 
     public Line getRow(int rowNumber) {
         Line row = new Line();
-        for (int i = 0; i < data[rowNumber].length; i++) {
+        for (var i = 0; i < data[rowNumber].length; i++) {
             row.setCell(i, data[rowNumber][i]);
         }
         return row;
@@ -55,8 +55,8 @@ public class Board {
         int row = boxNumber / Box.SIZE;
         int column = boxNumber % Box.SIZE;
         Box box = new Box();
-        for (int i = 0; i < Box.SIZE; i++) {
-            for (int j = 0; j < Box.SIZE; j++) {
+        for (var i = 0; i < Box.SIZE; i++) {
+            for (var j = 0; j < Box.SIZE; j++) {
                 box.setCell(i, j,
                         data[(row * Box.SIZE) + i][(column * Box.SIZE) + j]);
             }
@@ -72,8 +72,8 @@ public class Board {
      */
     public Box getBox(int row, int column) {
         Box box = new Box();
-        for (int i = 0; i < Box.SIZE; i++) {
-            for (int j = 0; j < Box.SIZE; j++) {
+        for (var i = 0; i < Box.SIZE; i++) {
+            for (var j = 0; j < Box.SIZE; j++) {
                 box.setCell(i, j,
                         data[(row * Box.SIZE) + i][(column * Box.SIZE) + j]);
             }
@@ -82,17 +82,17 @@ public class Board {
     }
 
     public boolean isLegal() {
-        for (int rowNumber = 0; rowNumber < Line.LENGTH; rowNumber++) {
+        for (var rowNumber = 0; rowNumber < Line.LENGTH; rowNumber++) {
             if (!isRowLegal(rowNumber)) {
                 return false;
             }
         }
-        for (int columnNumber = 0; columnNumber < Line.LENGTH; columnNumber++) {
+        for (var columnNumber = 0; columnNumber < Line.LENGTH; columnNumber++) {
             if (!isColumnLegal(columnNumber)) {
                 return false;
             }
         }
-        for (int boxNumber = 0; boxNumber < Board.BOX_COUNT; boxNumber++) {
+        for (var boxNumber = 0; boxNumber < Board.BOX_COUNT; boxNumber++) {
             if (!isBoxLegal(boxNumber)) {
                 return false;
             }
@@ -101,9 +101,9 @@ public class Board {
     }
 
     private boolean isRowLegal(int rowNumber) {
-        for (int value = 1; value <= Line.LENGTH; value++) {
+        for (var value = 1; value <= Line.LENGTH; value++) {
             boolean valueExists = false;
-            for (int location = 0; location < data.length; location++) {
+            for (var location = 0; location < data.length; location++) {
                 if (data[location][rowNumber].getValue() == value
                         && valueExists) {
                     return false;
@@ -116,9 +116,9 @@ public class Board {
     }
 
     private boolean isColumnLegal(int rowNumber) {
-        for (int value = 1; value <= Line.LENGTH; value++) {
+        for (var value = 1; value <= Line.LENGTH; value++) {
             boolean valueExists = false;
-            for (int location = 0; location < data.length; location++) {
+            for (var location = 0; location < data.length; location++) {
                 if (data[rowNumber][location].getValue() == value
                         && valueExists) {
                     return false;
@@ -133,10 +133,10 @@ public class Board {
     private boolean isBoxLegal(int boxNumber) {
         int row = boxNumber / Box.SIZE;
         int column = boxNumber % Box.SIZE;
-        for (int value = 1; value <= Line.LENGTH; value++) {
+        for (var value = 1; value <= Line.LENGTH; value++) {
             boolean valueExists = false;
-            for (int i = 0; i < Box.SIZE; i++) {
-                for (int j = 0; j < Box.SIZE; j++) {
+            for (var i = 0; i < Box.SIZE; i++) {
+                for (var j = 0; j < Box.SIZE; j++) {
                     if (data[(row * Box.SIZE) + i][(column * Box.SIZE) + j]
                             .getValue() == value && valueExists) {
                         return false;
@@ -151,8 +151,8 @@ public class Board {
     }
 
     public boolean isSolved() {
-        for (int row = 0; row < Line.LENGTH; row++) {
-            for (int column = 0; column < Line.LENGTH; column++) {
+        for (var row = 0; row < Line.LENGTH; row++) {
+            for (var column = 0; column < Line.LENGTH; column++) {
                 if (getCell(row, column).intValue() == Cell.EMPTY) {
                     return false;
                 }
@@ -174,8 +174,8 @@ public class Board {
     }
 
     public void setData(int[][] data) {
-        for (int i = 0; i < data.length; i++) {
-            for (int j = 0; j < data[i].length; j++) {
+        for (var i = 0; i < data.length; i++) {
+            for (var j = 0; j < data[i].length; j++) {
                 this.data[i][j] = new Cell(data[i][j]);
             }
         }
@@ -183,8 +183,8 @@ public class Board {
 
     public Board copy() {
         Board copy = new Board();
-        for (int row = 0; row < Line.LENGTH; row++) {
-            for (int column = 0; column < Line.LENGTH; column++) {
+        for (var row = 0; row < Line.LENGTH; row++) {
+            for (var column = 0; column < Line.LENGTH; column++) {
                 copy.setCell(row, column, new Cell(getCell(row, column)
                         .intValue()));
             }
@@ -196,9 +196,9 @@ public class Board {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(BoardToTextConverter.LINE_BREAK);
-        for (int row = 0; row < Line.LENGTH; row++) {
+        for (var row = 0; row < Line.LENGTH; row++) {
             Line line = getRow(row);
-            for (int column = 0; column < Line.LENGTH; column++) {
+            for (var column = 0; column < Line.LENGTH; column++) {
                 int value = line.getCell(column).intValue();
                 if (value == Cell.EMPTY) {
                     stringBuilder.append(".");

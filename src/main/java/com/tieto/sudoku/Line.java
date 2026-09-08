@@ -6,7 +6,7 @@ public class Line {
 	private Cell data[] = new Cell[LENGTH];
 
 	public Line() {
-		for (int i = 0; i < data.length; i++) {
+		for (var i = 0; i < data.length; i++) {
 			data[i] = new Cell();
 		}
 	}

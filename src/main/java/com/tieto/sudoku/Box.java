@@ -9,8 +9,8 @@ public class Box {
 
     public Box() {
         data = new Cell[SIZE][SIZE];
-        for (int i = 0; i < SIZE; i++) {
-            for (int j = 0; j < SIZE; j++) {
+        for (var i = 0; i < SIZE; i++) {
+            for (var j = 0; j < SIZE; j++) {
                 data[i][j] = new Cell();
             }
         }
@@ -29,8 +29,8 @@ public class Box {
     }
 
     public void setData(int[][] data) {
-        for (int i = 0; i < data.length; i++) {
-            for (int j = 0; j < data[i].length; j++) {
+        for (var i = 0; i < data.length; i++) {
+            for (var j = 0; j < data[i].length; j++) {
                 this.data[i][j] = new Cell(data[i][j]);
             }
         }
@@ -38,7 +38,7 @@ public class Box {
 
     public Line asLine() {
         Line line = new Line();
-        for (int location = 0; location < Line.LENGTH; location++) {
+        for (var location = 0; location < Line.LENGTH; location++) {
             int row = location / SIZE;
             int column = location % SIZE;
             line.setCell(location, getCell(row, column));
