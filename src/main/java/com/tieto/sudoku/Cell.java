@@ -19,7 +19,7 @@ public class Cell {
 	@Setter
 	@SuppressWarnings("PMD.UnusedPrivateField")
 	private boolean isClue = false;
-	Set<Integer> candidates = new HashSet<Integer>(Line.LENGTH);
+	Set<Integer> candidates = new HashSet<>(Line.LENGTH);
 
 	public Cell() {
 		this(EMPTY);
@@ -38,7 +38,7 @@ public class Cell {
 	}
 
 	public void setCandidates(Integer... integers) {
-		for (Integer integer : integers) {
+		for (var integer : integers) {
 			candidates.add(integer);
 		}
 	}
@@ -55,13 +55,13 @@ public class Cell {
 	}
 
 	public void resetCandidates() {
-		for (int candidate = 0; candidate < Line.LENGTH; candidate++) {
+		for (var candidate = 0; candidate < Line.LENGTH; candidate++) {
 			candidates.add(candidate + 1);
 		}
 	}
 
 	public void cleanCandidates() {
-		for (int candidate = 0; candidate < Line.LENGTH; candidate++) {
+		for (var candidate = 0; candidate < Line.LENGTH; candidate++) {
 			removeCandidate(candidate + 1);
 		}
 	}
@@ -71,8 +71,8 @@ public class Cell {
 	}
 
 	public int countCandidates() {
-		int candidateCount = 0;
-		for (int candidate = 1; candidate < 10; candidate++) {
+		var candidateCount = 0;
+		for (var candidate = 1; candidate < 10; candidate++) {
 			if (isCandidate(candidate)) {
 				candidateCount++;
 			}
@@ -81,6 +81,6 @@ public class Cell {
 	}
 
 	public List<Integer> getCandidatesAsList() {
-		return new ArrayList<Integer>(candidates);
+		return new ArrayList<>(candidates);
 	}
 }
