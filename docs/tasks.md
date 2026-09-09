@@ -25,10 +25,10 @@ Use inline execution.
 23. [x] update azure-pipelines.yml file to use jdk21
 24. [x] analyse project for deprecated code and libraries
 25. [x] create a plan to remove deprecated code and libraries, add phases
-26. [ ] remove deprecated code and libraries
-27. [ ] test project after removing deprecated code and libraries
-28. [ ] commit changes to version control when tests pass
-29. [ ] push changes to remote branch, ask permission first
+26. [x] remove deprecated code and libraries
+27. [x] test project after removing deprecated code and libraries
+28. [x] commit changes to version control when tests pass
+29. [x] push changes to remote branch, ask permission first
 30. [ ] validate that github actions run successfully
 31. [ ] create a plan to update project code to use new features of jdk21, add phases
 32. [ ] update project code to use new features of jdk21
