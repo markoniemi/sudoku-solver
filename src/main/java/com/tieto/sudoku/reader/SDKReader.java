@@ -3,6 +3,7 @@ package com.tieto.sudoku.reader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StreamCorruptedException;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import org.apache.commons.io.IOUtils;
@@ -26,7 +27,7 @@ public class SDKReader implements SudokuReader {
 	@Override
 	public Board read(InputStream inputStream) throws IOException {
 		@SuppressWarnings("unchecked")
-		List<String> textLines = IOUtils.readLines(inputStream);
+		List<String> textLines = IOUtils.readLines(inputStream, StandardCharsets.UTF_8);
 		int[][] data = new int[Line.LENGTH][Line.LENGTH];
 		int row = 0;
 		for (String textLine : textLines) {
