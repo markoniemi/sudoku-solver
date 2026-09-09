@@ -21,7 +21,7 @@ Use inline execution.
 19. [x] test project after updating to jdk21
 20. [x] commit changes to version control when tests pass
 21. [x] push changes to remote branch, ask permission first
-22. [ ] validate that github actions run successfully
+22. [x] validate that github actions run successfully
 23. [ ] analyse project for deprecated code and libraries
 24. [ ] create a plan to remove deprecated code and libraries, add phases
 25. [ ] remove deprecated code and libraries
