@@ -17,10 +17,10 @@ Use inline execution.
 15. [x] push changes to remote branch, ask permission first
 16. [x] validate that github actions run successfully
 17. [x] create a plan to update to jdk21
-18. [ ] update to jdk21
-19. [ ] test project after updating to jdk21
-20. [ ] commit changes to version control when tests pass
-21. [ ] push changes to remote branch, ask permission first
+18. [x] update to jdk21
+19. [x] test project after updating to jdk21
+20. [x] commit changes to version control when tests pass
+21. [x] push changes to remote branch, ask permission first
 22. [ ] validate that github actions run successfully
 23. [ ] analyse project for deprecated code and libraries
 24. [ ] create a plan to remove deprecated code and libraries, add phases
