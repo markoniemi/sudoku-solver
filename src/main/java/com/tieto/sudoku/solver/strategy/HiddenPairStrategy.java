@@ -8,7 +8,7 @@ import lombok.Data;
 import com.tieto.sudoku.Cell;
 import com.tieto.sudoku.Line;
 
-public class HiddenPairStrategy extends AbstractStrategy {
+public final class HiddenPairStrategy extends AbstractStrategy {
 
     public int applyToLine(Line line) {
         // find all pairs in line

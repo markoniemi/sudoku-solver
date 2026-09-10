@@ -12,7 +12,7 @@ import com.tieto.sudoku.Cell;
 import com.tieto.sudoku.Line;
 
 @Slf4j
-public class NakedGroupStrategy extends AbstractStrategy {
+public final class NakedGroupStrategy extends AbstractStrategy {
 	private int groupSize = 2;
 
 	public NakedGroupStrategy() {

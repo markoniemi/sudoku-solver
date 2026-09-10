@@ -4,7 +4,7 @@ import com.tieto.sudoku.Box;
 import com.tieto.sudoku.Cell;
 import com.tieto.sudoku.Line;
 
-public class SingleLocationStrategy extends AbstractStrategy{
+public final class SingleLocationStrategy extends AbstractStrategy{
 
 	public int applyToLine(Line line) {
 		int changeCount = 0;

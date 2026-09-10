@@ -10,7 +10,7 @@ import com.tieto.sudoku.Box;
 import com.tieto.sudoku.Line;
 
 // TODO refactor apply to use applyToLine
-public class PointingPairsStrategy extends AbstractStrategy {
+public final class PointingPairsStrategy extends AbstractStrategy {
 
     @Override
     public int apply(Board board) {

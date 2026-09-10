@@ -4,7 +4,14 @@ import com.tieto.sudoku.Board;
 import com.tieto.sudoku.Box;
 import com.tieto.sudoku.Line;
 
-public abstract class AbstractStrategy implements Strategy{
+public sealed abstract class AbstractStrategy implements Strategy permits
+    HiddenPairStrategy,
+    NakedGroupStrategy,
+    NakedPairStrategy,
+    PointingPairsStrategy,
+    SingleCandidateStrategy,
+    SingleLocationStrategy,
+    DummyStrategy {
     public abstract int applyToLine(Line line);
     public abstract String getName();
     public int apply(Board board) {

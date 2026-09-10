@@ -7,7 +7,7 @@ import lombok.Data;
 
 import com.tieto.sudoku.Line;
 
-public class NakedPairStrategy extends AbstractStrategy {
+public final class NakedPairStrategy extends AbstractStrategy {
 
     @Override
     public int applyToLine(Line line) {

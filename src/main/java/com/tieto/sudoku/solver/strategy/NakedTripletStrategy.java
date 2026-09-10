@@ -13,7 +13,7 @@ package com.tieto.sudoku.solver.strategy;
 //import com.tieto.sudoku.Line;
 //import com.tieto.sudoku.solver.strategy.NakedPairStrategy.CandidatePair;
 //
-//public class NakedTripletStrategy extends AbstractStrategy {
+//public final class NakedTripletStrategy extends AbstractStrategy {
 //
 //    @Override
 //    public String getName() {

@@ -4,7 +4,7 @@ import com.tieto.sudoku.Box;
 import com.tieto.sudoku.Cell;
 import com.tieto.sudoku.Line;
 
-public class SingleCandidateStrategy extends AbstractStrategy {
+public final class SingleCandidateStrategy extends AbstractStrategy {
 
     public int applyToLine(Line line) {
         int changeCount = 0;

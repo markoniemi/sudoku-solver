@@ -71,23 +71,4 @@ public class StrategyTest {
 		}
 	}
 
-	private class DummyStrategy extends AbstractStrategy {
-
-		@Override
-		public String getName() {
-			return "DummyStrategy";
-		}
-
-		@Override
-		public int apply(Board board) {
-			return 0;
-		}
-
-        @Override
-        public int applyToLine(Line line) {
-            // TODO Auto-generated method stub
-            return 0;
-        }
-
-	}
 }
