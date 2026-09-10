@@ -35,7 +35,7 @@ Use inline execution.
 33. [x] test project after updating project code to use new features of jdk21
 34. [x] commit changes to version control when tests pass
 35. [x] push changes to remote branch, ask permission first
-36. [ ] validate that github actions run successfully
+36. [x] validate that github actions run successfully
 37. [ ] analyse the code, how to clean up the code, remove unused code, and improve code quality
 38. [ ] create a plan to clean up the code, remove unused code, and improve code quality, add phases
 39. [ ] clean up the code, remove unused code, and improve code quality
