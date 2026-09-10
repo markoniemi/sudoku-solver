@@ -73,8 +73,8 @@ public class SudokuGenerator {
         log.debug("generateSeedRecursive.count: " + count);
         BruteForceSolver bruteForceSolver = new BruteForceSolver();
         Location location = locationGenerator.nextLocation();
-        int row = location.getRow();
-        int column = location.getColumn();
+        int row = location.row();
+        int column = location.column();
         for (var value = 1; value < 10; value++) {
             board.setValue(row, column, value);
             board.getCell(row, column).setClue(true);
@@ -107,8 +107,8 @@ public class SudokuGenerator {
             int column;
             do {
                 Location location = locationGenerator.nextLocation();
-                row = location.getRow();
-                column = location.getColumn();
+                row = location.row();
+                column = location.column();
                 value = board.getCell(row, column).intValue();
             } while (value == Cell.EMPTY);
             // remove a number of values
