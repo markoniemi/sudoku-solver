@@ -2,7 +2,7 @@ package com.tieto.sudoku.solver.strategy;
 
 import java.util.List;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
@@ -53,15 +53,15 @@ public class PointingPairsStrategyTest {
 		PointingPairsStrategy pointingPairsStrategy = new PointingPairsStrategy();
 		List<CandidateLine> candidatesInRow = pointingPairsStrategy
 				.getCandidatesInLine(box, Direction.HORIZONTAL);
-		Assertions.assertEquals(3, candidatesInRow.size());
-		Assertions.assertEquals(2, candidatesInRow.get(0).getCandidate());
-		Assertions.assertEquals(4, candidatesInRow.get(1).getCandidate());
-		Assertions.assertEquals(5, candidatesInRow.get(2).getCandidate());
+		assertEquals(3, candidatesInRow.size());
+		assertEquals(2, candidatesInRow.get(0).getCandidate());
+		assertEquals(4, candidatesInRow.get(1).getCandidate());
+		assertEquals(5, candidatesInRow.get(2).getCandidate());
 		candidatesInRow = pointingPairsStrategy.getCandidatesInLine(box, Direction.VERTICAL);
-		Assertions.assertEquals(3, candidatesInRow.size());
-		Assertions.assertEquals(3, candidatesInRow.get(0).getCandidate());
-		Assertions.assertEquals(4, candidatesInRow.get(1).getCandidate());
-		Assertions.assertEquals(6, candidatesInRow.get(2).getCandidate());
+		assertEquals(3, candidatesInRow.size());
+		assertEquals(3, candidatesInRow.get(0).getCandidate());
+		assertEquals(4, candidatesInRow.get(1).getCandidate());
+		assertEquals(6, candidatesInRow.get(2).getCandidate());
 	}
 
 	@Test
@@ -119,16 +119,16 @@ public class PointingPairsStrategyTest {
 		board.getCell(1, 0).setCandidate(8);
 		board.getCell(1, 1).setCandidate(8);
 		PointingPairsStrategy pointingPairsStrategy = new PointingPairsStrategy();
-		Assertions.assertEquals(6, pointingPairsStrategy.apply(board));
+		assertEquals(6, pointingPairsStrategy.apply(board));
 		// horizontal lines
-		Assertions.assertFalse(board.getCell(0, 4).isCandidate(2));
-		Assertions.assertFalse(board.getCell(1, 4).isCandidate(4));
-		Assertions.assertFalse(board.getCell(2, 4).isCandidate(5));
+		assertFalse(board.getCell(0, 4).isCandidate(2));
+		assertFalse(board.getCell(1, 4).isCandidate(4));
+		assertFalse(board.getCell(2, 4).isCandidate(5));
 		// vertical lines
-		Assertions.assertFalse(board.getCell(4, 1).isCandidate(3));
-		Assertions.assertFalse(board.getCell(4, 1).isCandidate(4));
-		Assertions.assertFalse(board.getCell(4, 2).isCandidate(6));
+		assertFalse(board.getCell(4, 1).isCandidate(3));
+		assertFalse(board.getCell(4, 1).isCandidate(4));
+		assertFalse(board.getCell(4, 2).isCandidate(6));
 		// another call should yield nothing
-		Assertions.assertEquals(0, pointingPairsStrategy.apply(board));
+		assertEquals(0, pointingPairsStrategy.apply(board));
 	}
 }

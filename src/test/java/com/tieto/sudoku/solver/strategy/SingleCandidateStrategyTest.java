@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
@@ -25,8 +25,8 @@ public class SingleCandidateStrategyTest {
 		line.setValue(8, Cell.EMPTY);
 		SingleCandidateStrategy strategy = new SingleCandidateStrategy();
 		strategy.calculateLineCandidates(line);
-		Assertions.assertEquals(1, strategy.applyToLine(line));
-		Assertions.assertEquals(9, line.getCell(8).intValue());
+		assertEquals(1, strategy.applyToLine(line));
+		assertEquals(9, line.getCell(8).intValue());
 	}
 
 	@Test
@@ -43,8 +43,8 @@ public class SingleCandidateStrategyTest {
 		box.setValue(2, 2, Cell.EMPTY);
 		SingleCandidateStrategy strategy = new SingleCandidateStrategy();
 		strategy.calculateBoxCandidates(box);
-		Assertions.assertEquals(1, strategy.applyToBox(box));
-		Assertions.assertEquals(9, box.getCell(2, 2).intValue());
+		assertEquals(1, strategy.applyToBox(box));
+		assertEquals(9, box.getCell(2, 2).intValue());
 	}
 
 	@Test
@@ -53,7 +53,7 @@ public class SingleCandidateStrategyTest {
 		board.setValue(0, 0, Cell.EMPTY);
 		SingleCandidateStrategy strategy = new SingleCandidateStrategy();
 		strategy.calculateCandidates(board);
-		Assertions.assertEquals(1, strategy.apply(board));
-		Assertions.assertEquals(9, board.getCell(0, 0).intValue());
+		assertEquals(1, strategy.apply(board));
+		assertEquals(9, board.getCell(0, 0).intValue());
 	}
 }

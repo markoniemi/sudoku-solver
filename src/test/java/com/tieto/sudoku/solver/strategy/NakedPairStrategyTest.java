@@ -2,7 +2,7 @@ package com.tieto.sudoku.solver.strategy;
 
 import java.util.List;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
@@ -26,10 +26,10 @@ public class NakedPairStrategyTest {
 		line.getCell(7).setCandidates(1,8,9);
 		NakedPairStrategy nakedPairStrategy = new NakedPairStrategy();
 		List<CandidatePair> pairs = nakedPairStrategy.findCandidatePairs(line);
-		Assertions.assertEquals(3, pairs.size());
-		Assertions.assertEquals(1, pairs.get(0).getLocation());
-		Assertions.assertEquals(5, pairs.get(1).getLocation());
-		Assertions.assertEquals(6, pairs.get(2).getLocation());
+		assertEquals(3, pairs.size());
+		assertEquals(1, pairs.get(0).getLocation());
+		assertEquals(5, pairs.get(1).getLocation());
+		assertEquals(6, pairs.get(2).getLocation());
 	}
 
 	@Test
@@ -46,9 +46,9 @@ public class NakedPairStrategyTest {
 		line.getCell(6).setCandidates(7,8);
 		line.getCell(7).setCandidates(1,8,9);
 		NakedPairStrategy nakedPairStrategy = new NakedPairStrategy();
-		Assertions.assertEquals(2, nakedPairStrategy.applyToLine(line));
-		Assertions.assertFalse(line.getCell(2).isCandidate(7));
-		Assertions.assertFalse(line.getCell(7).isCandidate(8));
+		assertEquals(2, nakedPairStrategy.applyToLine(line));
+		assertFalse(line.getCell(2).isCandidate(7));
+		assertFalse(line.getCell(7).isCandidate(8));
 	}
 	@Test
 	public void testApplyToLine2() {
@@ -64,11 +64,11 @@ public class NakedPairStrategyTest {
 	    line.getCell(6).setCandidates(7,8);
 	    line.getCell(7).setCandidates(1,8,9);
 	    NakedPairStrategy nakedPairStrategy = new NakedPairStrategy();
-	    Assertions.assertEquals(4, nakedPairStrategy.applyToLine(line));
-	    Assertions.assertFalse(line.getCell(2).isCandidate(7));
-	    Assertions.assertFalse(line.getCell(7).isCandidate(8));
-	    Assertions.assertFalse(line.getCell(2).isCandidate(4));
-	    Assertions.assertFalse(line.getCell(3).isCandidate(3));
+	    assertEquals(4, nakedPairStrategy.applyToLine(line));
+	    assertFalse(line.getCell(2).isCandidate(7));
+	    assertFalse(line.getCell(7).isCandidate(8));
+	    assertFalse(line.getCell(2).isCandidate(4));
+	    assertFalse(line.getCell(3).isCandidate(3));
 	}
 
 	@Test
@@ -87,8 +87,8 @@ public class NakedPairStrategyTest {
 		box.getCell(2, 0).setCandidates(7,8);
 		box.getCell(2, 1).setCandidates(1,8,9);
 		NakedPairStrategy nakedPairStrategy = new NakedPairStrategy();
-		Assertions.assertEquals(2, nakedPairStrategy.applyToLine(box.asLine()));
-		Assertions.assertFalse(box.getCell(0, 2).isCandidate(7));
-		Assertions.assertFalse(box.getCell(2, 1).isCandidate(8));
+		assertEquals(2, nakedPairStrategy.applyToLine(box.asLine()));
+		assertFalse(box.getCell(0, 2).isCandidate(7));
+		assertFalse(box.getCell(2, 1).isCandidate(8));
 	}
 }

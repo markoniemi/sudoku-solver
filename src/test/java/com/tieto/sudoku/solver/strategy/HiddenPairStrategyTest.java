@@ -2,7 +2,7 @@ package com.tieto.sudoku.solver.strategy;
 
 import java.util.List;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
@@ -29,11 +29,11 @@ public class HiddenPairStrategyTest {
 		HiddenPairStrategy strategy = new HiddenPairStrategy();
 		List<com.tieto.sudoku.solver.strategy.HiddenPairStrategy.LinePair> pairs = strategy
 				.findPairs(line);
-		Assertions.assertEquals(4, pairs.size());
-		Assertions.assertEquals(3, pairs.get(0).getValue());
-		Assertions.assertEquals(4, pairs.get(1).getValue());
-		Assertions.assertEquals(7, pairs.get(2).getValue());
-		Assertions.assertEquals(8, pairs.get(3).getValue());
+		assertEquals(4, pairs.size());
+		assertEquals(3, pairs.get(0).getValue());
+		assertEquals(4, pairs.get(1).getValue());
+		assertEquals(7, pairs.get(2).getValue());
+		assertEquals(8, pairs.get(3).getValue());
 	}
 
 	@Test
@@ -57,11 +57,11 @@ public class HiddenPairStrategyTest {
 		Line line = box.asLine();
 		List<com.tieto.sudoku.solver.strategy.HiddenPairStrategy.LinePair> pairs = strategy
 				.findPairs(line);
-		Assertions.assertEquals(4, pairs.size());
-		Assertions.assertEquals(3, pairs.get(0).getValue());
-		Assertions.assertEquals(4, pairs.get(1).getValue());
-		Assertions.assertEquals(7, pairs.get(2).getValue());
-		Assertions.assertEquals(8, pairs.get(3).getValue());
+		assertEquals(4, pairs.size());
+		assertEquals(3, pairs.get(0).getValue());
+		assertEquals(4, pairs.get(1).getValue());
+		assertEquals(7, pairs.get(2).getValue());
+		assertEquals(8, pairs.get(3).getValue());
 	}
 
 	@Test
@@ -80,27 +80,27 @@ public class HiddenPairStrategyTest {
 		line.getCell(5).setCandidates(7, 8);
 		line.getCell(6).setCandidates(7, 8);
 		HiddenPairStrategy strategy = new HiddenPairStrategy();
-		Assertions.assertEquals(1, strategy.applyToLine(line));
-		Assertions.assertFalse(line.getCell(5).isCandidate(1));
-		Assertions.assertFalse(line.getCell(5).isCandidate(2));
-		Assertions.assertFalse(line.getCell(5).isCandidate(3));
-		Assertions.assertFalse(line.getCell(5).isCandidate(4));
-		Assertions.assertFalse(line.getCell(5).isCandidate(5));
-		Assertions.assertFalse(line.getCell(5).isCandidate(6));
-		Assertions.assertTrue(line.getCell(5).isCandidate(7));
-		Assertions.assertTrue(line.getCell(5).isCandidate(8));
-		Assertions.assertFalse(line.getCell(5).isCandidate(9));
-		Assertions.assertFalse(line.getCell(6).isCandidate(1));
-		Assertions.assertFalse(line.getCell(6).isCandidate(2));
-		Assertions.assertFalse(line.getCell(6).isCandidate(3));
-		Assertions.assertFalse(line.getCell(6).isCandidate(4));
-		Assertions.assertFalse(line.getCell(6).isCandidate(5));
-		Assertions.assertFalse(line.getCell(6).isCandidate(6));
-		Assertions.assertTrue(line.getCell(6).isCandidate(7));
-		Assertions.assertTrue(line.getCell(6).isCandidate(8));
-		Assertions.assertFalse(line.getCell(6).isCandidate(9));
+		assertEquals(1, strategy.applyToLine(line));
+		assertFalse(line.getCell(5).isCandidate(1));
+		assertFalse(line.getCell(5).isCandidate(2));
+		assertFalse(line.getCell(5).isCandidate(3));
+		assertFalse(line.getCell(5).isCandidate(4));
+		assertFalse(line.getCell(5).isCandidate(5));
+		assertFalse(line.getCell(5).isCandidate(6));
+		assertTrue(line.getCell(5).isCandidate(7));
+		assertTrue(line.getCell(5).isCandidate(8));
+		assertFalse(line.getCell(5).isCandidate(9));
+		assertFalse(line.getCell(6).isCandidate(1));
+		assertFalse(line.getCell(6).isCandidate(2));
+		assertFalse(line.getCell(6).isCandidate(3));
+		assertFalse(line.getCell(6).isCandidate(4));
+		assertFalse(line.getCell(6).isCandidate(5));
+		assertFalse(line.getCell(6).isCandidate(6));
+		assertTrue(line.getCell(6).isCandidate(7));
+		assertTrue(line.getCell(6).isCandidate(8));
+		assertFalse(line.getCell(6).isCandidate(9));
 		// run again to see if the method returns changeCount == 0
-		Assertions.assertEquals(0, strategy.applyToLine(line));
+		assertEquals(0, strategy.applyToLine(line));
 	}
 
 	@Test
@@ -121,26 +121,26 @@ public class HiddenPairStrategyTest {
 		box.getCell(1, 2).setCandidates(7, 8);
 		box.getCell(2, 0).setCandidates(7, 8);
 		HiddenPairStrategy strategy = new HiddenPairStrategy();
-		Assertions.assertEquals(1, strategy.applyToLine(box.asLine()));
-		Assertions.assertFalse(box.getCell(1, 2).isCandidate(1));
-		Assertions.assertFalse(box.getCell(1, 2).isCandidate(2));
-		Assertions.assertFalse(box.getCell(1, 2).isCandidate(3));
-		Assertions.assertFalse(box.getCell(1, 2).isCandidate(4));
-		Assertions.assertFalse(box.getCell(1, 2).isCandidate(5));
-		Assertions.assertFalse(box.getCell(1, 2).isCandidate(6));
-		Assertions.assertTrue(box.getCell(1, 2).isCandidate(7));
-		Assertions.assertTrue(box.getCell(1, 2).isCandidate(8));
-		Assertions.assertFalse(box.getCell(1, 2).isCandidate(9));
-		Assertions.assertFalse(box.getCell(2, 0).isCandidate(1));
-		Assertions.assertFalse(box.getCell(2, 0).isCandidate(2));
-		Assertions.assertFalse(box.getCell(2, 0).isCandidate(3));
-		Assertions.assertFalse(box.getCell(2, 0).isCandidate(4));
-		Assertions.assertFalse(box.getCell(2, 0).isCandidate(5));
-		Assertions.assertFalse(box.getCell(2, 0).isCandidate(6));
-		Assertions.assertTrue(box.getCell(2, 0).isCandidate(7));
-		Assertions.assertTrue(box.getCell(2, 0).isCandidate(8));
-		Assertions.assertFalse(box.getCell(2, 0).isCandidate(9));
+		assertEquals(1, strategy.applyToLine(box.asLine()));
+		assertFalse(box.getCell(1, 2).isCandidate(1));
+		assertFalse(box.getCell(1, 2).isCandidate(2));
+		assertFalse(box.getCell(1, 2).isCandidate(3));
+		assertFalse(box.getCell(1, 2).isCandidate(4));
+		assertFalse(box.getCell(1, 2).isCandidate(5));
+		assertFalse(box.getCell(1, 2).isCandidate(6));
+		assertTrue(box.getCell(1, 2).isCandidate(7));
+		assertTrue(box.getCell(1, 2).isCandidate(8));
+		assertFalse(box.getCell(1, 2).isCandidate(9));
+		assertFalse(box.getCell(2, 0).isCandidate(1));
+		assertFalse(box.getCell(2, 0).isCandidate(2));
+		assertFalse(box.getCell(2, 0).isCandidate(3));
+		assertFalse(box.getCell(2, 0).isCandidate(4));
+		assertFalse(box.getCell(2, 0).isCandidate(5));
+		assertFalse(box.getCell(2, 0).isCandidate(6));
+		assertTrue(box.getCell(2, 0).isCandidate(7));
+		assertTrue(box.getCell(2, 0).isCandidate(8));
+		assertFalse(box.getCell(2, 0).isCandidate(9));
 		// run again to see if the method returns changeCount == 0
-		Assertions.assertEquals(0, strategy.applyToLine(box.asLine()));
+		assertEquals(0, strategy.applyToLine(box.asLine()));
 	}
 }

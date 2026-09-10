@@ -2,7 +2,7 @@ package com.tieto.sudoku.solver.strategy;
 
 import java.util.List;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
@@ -37,11 +37,11 @@ public class NakedGroupStrategyTest {
         line.getCell(7).setCandidate(9);
         NakedGroupStrategy nakedGroupStrategy = new NakedGroupStrategy();
         List<CandidateGroup> candidateGroups = nakedGroupStrategy.findCandidateGroups(line);
-        Assertions.assertEquals(0, candidateGroups.get(0).getLocation());
-        Assertions.assertEquals(1, candidateGroups.get(1).getLocation());
-        Assertions.assertEquals(2, candidateGroups.get(2).getLocation());
-        Assertions.assertEquals(5, candidateGroups.get(3).getLocation());
-        Assertions.assertEquals(6, candidateGroups.get(4).getLocation());
+        assertEquals(0, candidateGroups.get(0).getLocation());
+        assertEquals(1, candidateGroups.get(1).getLocation());
+        assertEquals(2, candidateGroups.get(2).getLocation());
+        assertEquals(5, candidateGroups.get(3).getLocation());
+        assertEquals(6, candidateGroups.get(4).getLocation());
     }
     @Test
     public void testApplyToLine() {
@@ -66,9 +66,9 @@ public class NakedGroupStrategyTest {
         line.getCell(7).setCandidate(9);
         NakedGroupStrategy nakedGroupStrategy = new NakedGroupStrategy();
         nakedGroupStrategy.applyToLine(line);
-//        Assertions.assertEquals(2, nakedGroupStrategy.applyToLine(line));
-        Assertions.assertFalse(line.getCell(2).isCandidate(7));
-        Assertions.assertFalse(line.getCell(7).isCandidate(8));
+//        assertEquals(2, nakedGroupStrategy.applyToLine(line));
+        assertFalse(line.getCell(2).isCandidate(7));
+        assertFalse(line.getCell(7).isCandidate(8));
     }
     @Test
     public void testApplyToLine2() {
@@ -94,11 +94,11 @@ public class NakedGroupStrategyTest {
         line.getCell(7).setCandidate(9);
         NakedGroupStrategy nakedGroupStrategy = new NakedGroupStrategy();
         nakedGroupStrategy.applyToLine(line);
-//        Assertions.assertEquals(4, nakedGroupStrategy.applyToLine(line));
-        Assertions.assertFalse(line.getCell(2).isCandidate(7));
-        Assertions.assertFalse(line.getCell(7).isCandidate(8));
-        Assertions.assertFalse(line.getCell(2).isCandidate(4));
-        Assertions.assertFalse(line.getCell(3).isCandidate(3));
+//        assertEquals(4, nakedGroupStrategy.applyToLine(line));
+        assertFalse(line.getCell(2).isCandidate(7));
+        assertFalse(line.getCell(7).isCandidate(8));
+        assertFalse(line.getCell(2).isCandidate(4));
+        assertFalse(line.getCell(3).isCandidate(3));
     }
 
     @Test
@@ -126,9 +126,9 @@ public class NakedGroupStrategyTest {
         box.getCell(2, 1).setCandidate(9);
         NakedGroupStrategy nakedGroupStrategy = new NakedGroupStrategy();
         nakedGroupStrategy.applyToLine(box.asLine());
-//        Assertions.assertEquals(2, nakedGroupStrategy.applyToLine(box.asLine()));
-        Assertions.assertFalse(box.getCell(0, 2).isCandidate(7));
-        Assertions.assertFalse(box.getCell(2, 1).isCandidate(8));
+//        assertEquals(2, nakedGroupStrategy.applyToLine(box.asLine()));
+        assertFalse(box.getCell(0, 2).isCandidate(7));
+        assertFalse(box.getCell(2, 1).isCandidate(8));
     }
 
 }

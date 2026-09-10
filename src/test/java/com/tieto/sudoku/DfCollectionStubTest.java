@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 public class DfCollectionStubTest {
@@ -14,9 +14,9 @@ public class DfCollectionStubTest {
     public void addRow() {
         DfCollectionStub collection = createCollection();
 
-        Assertions.assertEquals("value0", collection.getStringValue("key", 0));
-        Assertions.assertEquals("value1", collection.getStringValue("key", 1));
-        Assertions.assertEquals("value2", collection.getStringValue("key", 2));
+        assertEquals("value0", collection.getStringValue("key", 0));
+        assertEquals("value1", collection.getStringValue("key", 1));
+        assertEquals("value2", collection.getStringValue("key", 2));
     }
 
     @Test
@@ -27,10 +27,10 @@ public class DfCollectionStubTest {
         for (int i = 0; i < collection.size(); i++) {
             values.add(collection.getStringValue("key", i));
         }
-        Assertions.assertEquals(3, values.size());
-        Assertions.assertEquals("value0", values.get(0));
-        Assertions.assertEquals("value1", values.get(1));
-        Assertions.assertEquals("value2", values.get(2));
+        assertEquals(3, values.size());
+        assertEquals("value0", values.get(0));
+        assertEquals("value1", values.get(1));
+        assertEquals("value2", values.get(2));
     }
 
     @Test
@@ -41,10 +41,10 @@ public class DfCollectionStubTest {
         while (collection.next()) {
             values.add(collection.getValue("key"));
         }
-        Assertions.assertEquals(3, values.size());
-        Assertions.assertEquals("value0", values.get(0));
-        Assertions.assertEquals("value1", values.get(1));
-        Assertions.assertEquals("value2", values.get(2));
+        assertEquals(3, values.size());
+        assertEquals("value0", values.get(0));
+        assertEquals("value1", values.get(1));
+        assertEquals("value2", values.get(2));
     }
 
     private DfCollectionStub createCollection() {

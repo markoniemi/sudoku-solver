@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
 import lombok.extern.log4j.Log4j;
 
 import org.junit.jupiter.api.Disabled;
@@ -22,11 +22,11 @@ public class StrategySolverTest {
 		// solve easiest board, which also has a solved version in test data
         Board board = new SDKReader().read(new FileInputStream("src/test/resources/easiest.sdk"));
 		StrategySolver strategySolver = new StrategySolver();
-		Assertions.assertTrue(strategySolver.solve(board));
+		assertTrue(strategySolver.solve(board));
 		Board solvedBoard = new SDKReader().read(new FileInputStream("src/test/resources/easiestSolved.sdk"));
 		for (int row = 0; row < 9; row++) {
 			for (int column = 0; column < 9; column++) {
-				Assertions.assertEquals(solvedBoard.getCell(row,column).getValue(), board
+				assertEquals(solvedBoard.getCell(row,column).getValue(), board
 						.getCell(row, column).intValue());
 			}
 		}
@@ -44,11 +44,11 @@ public class StrategySolverTest {
 		    BoardToTextConverter toTextConverter = new BoardToTextConverter();
 			log.debug("gentle" + toTextConverter.convert(board));
 		}
-		Assertions.assertTrue(solved);
+		assertTrue(solved);
         Board solvedBoard = new SDKReader().read(new FileInputStream("src/test/resources/gentleSolved.sdk"));
         for (int row = 0; row < 9; row++) {
             for (int column = 0; column < 9; column++) {
-                Assertions.assertEquals(solvedBoard.getCell(row,column).getValue(), board
+                assertEquals(solvedBoard.getCell(row,column).getValue(), board
                         .getCell(row, column).intValue());
             }
         }
@@ -65,13 +65,13 @@ public class StrategySolverTest {
             BoardToTextConverter toTextConverter = new BoardToTextConverter();
             log.debug("moderate" + toTextConverter.convert(board));
 		}
-		Assertions.assertTrue(solved);
+		assertTrue(solved);
 		BruteForceSolver bruteForceSolver = new BruteForceSolver();
 		Board solvedBoard = new SDKReader().read(new FileInputStream("src/test/resources/moderate.sdk"));
 		bruteForceSolver.solve(solvedBoard);
 		for (int row = 0; row < 9; row++) {
 			for (int column = 0; column < 9; column++) {
-				Assertions.assertEquals(solvedBoard.getCell(row, column)
+				assertEquals(solvedBoard.getCell(row, column)
 						.intValue(), board.getCell(row, column).intValue());
 			}
 		}
@@ -87,13 +87,13 @@ public class StrategySolverTest {
             BoardToTextConverter toTextConverter = new BoardToTextConverter();
             log.debug("mild" + toTextConverter.convert(board));
 		}
-		Assertions.assertTrue(solved);
+		assertTrue(solved);
 		BruteForceSolver bruteForceSolver = new BruteForceSolver();
 		Board solvedBoard = new SDKReader().read(new FileInputStream("src/test/resources/mild.sdk"));
 		bruteForceSolver.solve(solvedBoard);
 		for (int row = 0; row < 9; row++) {
 			for (int column = 0; column < 9; column++) {
-				Assertions.assertEquals(solvedBoard.getCell(row, column)
+				assertEquals(solvedBoard.getCell(row, column)
 						.intValue(), board.getCell(row, column).intValue());
 			}
 		}

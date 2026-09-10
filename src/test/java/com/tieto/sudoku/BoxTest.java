@@ -1,6 +1,6 @@
 package com.tieto.sudoku;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
@@ -18,7 +18,7 @@ public class BoxTest {
         }
         Line line = box.asLine();
         for (int i = 0; i < 9; i++) {
-            Assertions.assertEquals(i + 1, line.getCell(i).getValue());
+            assertEquals(i + 1, line.getCell(i).getValue());
         }
     }
 }

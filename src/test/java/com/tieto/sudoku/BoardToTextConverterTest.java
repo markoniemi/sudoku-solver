@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import lombok.extern.log4j.Log4j;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import com.tieto.sudoku.reader.SDKReader;
@@ -26,7 +26,7 @@ public class BoardToTextConverterTest {
         strategy.calculateCandidates(board);
         BoardToTextConverter toTextConverter = new BoardToTextConverter();
         String boardAsText = toTextConverter.convert(board);
-        Assertions.assertTrue(boardAsText.contains("|   |1  |   |1  |   |1  |   |   |1  |"));
+        assertTrue(boardAsText.contains("|   |1  |   |1  |   |1  |   |   |1  |"));
         log.debug(boardAsText);
     }
 }
