@@ -1,10 +1,10 @@
 package com.tieto.sudoku.generator;
 
-import junit.framework.Assert;
+import org.junit.jupiter.api.Assertions;
 import lombok.extern.log4j.Log4j;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import com.tieto.sudoku.Board;
 import com.tieto.sudoku.BoardToTextConverter;
@@ -39,11 +39,11 @@ public class SudokuGeneratorTest {
                 .setLocationGenerator(new OrderedLocationGenerator(step));
         Board board = sudokuGenerator.generate();
         log.debug(board.toString());
-        Assert.assertTrue(board.isLegal());
+        Assertions.assertTrue(board.isLegal());
         BruteForceSolver bruteForceSolver = new BruteForceSolver();
-        Assert.assertTrue(bruteForceSolver.solve(board.copy()));
+        Assertions.assertTrue(bruteForceSolver.solve(board.copy()));
         StrategySolver strategySolver = new StrategySolver();
-        Assert.assertEquals(1, bruteForceSolver.findAllSolutions(board.copy())
+        Assertions.assertEquals(1, bruteForceSolver.findAllSolutions(board.copy())
                 .size());
         boolean solved = strategySolver.solve(board.copy());
         log.debug("after strategySolver:");
@@ -52,7 +52,7 @@ public class SudokuGeneratorTest {
             BoardToTextConverter toTextConverter = new BoardToTextConverter();
             log.debug("generator" + toTextConverter.convert(board));
         }
-        Assert.assertTrue(solved);
+        Assertions.assertTrue(solved);
         return board;
     }
 
@@ -62,11 +62,11 @@ public class SudokuGeneratorTest {
         sudokuGenerator.setLocationGenerator(new RandomLocationGenerator());
         Board board = sudokuGenerator.generate();
         log.debug(board.toString());
-        Assert.assertTrue(board.isLegal());
+        Assertions.assertTrue(board.isLegal());
         BruteForceSolver bruteForceSolver = new BruteForceSolver();
-        Assert.assertTrue(bruteForceSolver.solve(board.copy()));
+        Assertions.assertTrue(bruteForceSolver.solve(board.copy()));
         StrategySolver strategySolver = new StrategySolver();
-        Assert.assertEquals(1, bruteForceSolver.findAllSolutions(board.copy())
+        Assertions.assertEquals(1, bruteForceSolver.findAllSolutions(board.copy())
                 .size());
         boolean solved = strategySolver.solve(board.copy());
         log.debug("after strategySolver:");
@@ -75,7 +75,7 @@ public class SudokuGeneratorTest {
             BoardToTextConverter toTextConverter = new BoardToTextConverter();
             log.debug("generator" + toTextConverter.convert(board));
         }
-        Assert.assertTrue(solved);
+        Assertions.assertTrue(solved);
     }
 
     private int countValues(Board board) {

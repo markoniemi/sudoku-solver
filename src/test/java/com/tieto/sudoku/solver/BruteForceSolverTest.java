@@ -5,11 +5,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
-import junit.framework.Assert;
+import org.junit.jupiter.api.Assertions;
 import lombok.extern.log4j.Log4j;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import com.tieto.sudoku.Board;
 import com.tieto.sudoku.Cell;
@@ -27,9 +27,9 @@ public class BruteForceSolverTest {
 		board.setValue(0, 1, Cell.EMPTY);
 		board.getCell(0, 1).setClue(false);
 		BruteForceSolver bruteForceSolver = new BruteForceSolver();
-		Assert.assertTrue(bruteForceSolver.solve(board));
-		Assert.assertEquals(9, board.getCell(0, 0).intValue());
-		Assert.assertEquals(4, board.getCell(0, 1).intValue());
+		Assertions.assertTrue(bruteForceSolver.solve(board));
+		Assertions.assertEquals(9, board.getCell(0, 0).intValue());
+		Assertions.assertEquals(4, board.getCell(0, 1).intValue());
 		// test with last two values as empty
 		board = new SDKReader().read(new FileInputStream("src/test/resources/testData1.sdk"));
 		board.setValue(8, 7, Cell.EMPTY);
@@ -37,13 +37,13 @@ public class BruteForceSolverTest {
 		board.setValue(8, 8, Cell.EMPTY);
 		board.getCell(8, 8).setClue(false);
 		bruteForceSolver = new BruteForceSolver();
-		Assert.assertTrue(bruteForceSolver.solve(board));
-		Assert.assertEquals(6, board.getCell(8, 7).intValue());
-		Assert.assertEquals(1, board.getCell(8, 8).intValue());
+		Assertions.assertTrue(bruteForceSolver.solve(board));
+		Assertions.assertEquals(6, board.getCell(8, 7).intValue());
+		Assertions.assertEquals(1, board.getCell(8, 8).intValue());
 	}
 
 	@Test
-//	@Ignore
+//	@Disabled
 	public void solveWithEmptyBoard() throws FileNotFoundException, IOException {
 	    Board board = new SDKReader().read(new FileInputStream("src/test/resources/testData1.sdk"));
 		BruteForceSolver bruteForceSolver = new BruteForceSolver();
@@ -51,8 +51,8 @@ public class BruteForceSolverTest {
 		if (!solved) {
 			log.debug("empty" + board.toString());
 		}
-		Assert.assertTrue(solved);
-		Assert.assertTrue(board.isLegal());
+		Assertions.assertTrue(solved);
+		Assertions.assertTrue(board.isLegal());
 	}
 
 	@Test
@@ -63,9 +63,9 @@ public class BruteForceSolverTest {
 		if (!solved) {
 			log.debug("testData3" + board.toString());
 		}
-		Assert.assertEquals(9, board.getCell(0, 8).getValue());
-		Assert.assertTrue(solved);
-		Assert.assertTrue(board.isLegal());
+		Assertions.assertEquals(9, board.getCell(0, 8).getValue());
+		Assertions.assertTrue(solved);
+		Assertions.assertTrue(board.isLegal());
 	}
 
 	@Test
@@ -76,9 +76,9 @@ public class BruteForceSolverTest {
 		if (!solved) {
 			log.debug("easiest" + board.toString());
 		}
-		Assert.assertEquals(8, board.getCell(0, 8).getValue());
-		Assert.assertTrue(solved);
-		Assert.assertTrue(board.isLegal());
+		Assertions.assertEquals(8, board.getCell(0, 8).getValue());
+		Assertions.assertTrue(solved);
+		Assertions.assertTrue(board.isLegal());
 	}
 
 	@Test
@@ -89,9 +89,9 @@ public class BruteForceSolverTest {
 		if (!solved) {
 			log.debug("gentle" + board.toString());
 		}
-		Assert.assertEquals(7, board.getCell(0, 0).getValue());
-		Assert.assertTrue(solved);
-		Assert.assertTrue(board.isLegal());
+		Assertions.assertEquals(7, board.getCell(0, 0).getValue());
+		Assertions.assertTrue(solved);
+		Assertions.assertTrue(board.isLegal());
 	}
 
 	@Test
@@ -102,13 +102,13 @@ public class BruteForceSolverTest {
 		if (!solved) {
 			log.debug("moderate" + board.toString());
 		}
-		Assert.assertEquals(2, board.getCell(0, 8).getValue());
-		Assert.assertTrue(solved);
-		Assert.assertTrue(board.isLegal());
+		Assertions.assertEquals(2, board.getCell(0, 8).getValue());
+		Assertions.assertTrue(solved);
+		Assertions.assertTrue(board.isLegal());
 	}
 
 	@Test
-	@Ignore
+	@Disabled
 	public void solveWithDaily() throws FileNotFoundException, IOException {
 	    Board board = new SDKReader().read(new FileInputStream("src/test/resources/daily.sdk"));
 		BruteForceSolver bruteForceSolver = new BruteForceSolver();
@@ -116,8 +116,8 @@ public class BruteForceSolverTest {
 		if (!solved) {
 			log.debug("daily" + board.toString());
 		}
-		Assert.assertTrue(solved);
-		Assert.assertTrue(board.isLegal());
+		Assertions.assertTrue(solved);
+		Assertions.assertTrue(board.isLegal());
 	}
 
 	@Test
@@ -125,7 +125,7 @@ public class BruteForceSolverTest {
 	    Board board = new SDKReader().read(new FileInputStream("src/test/resources/testData1.sdk"));
 		BruteForceSolver bruteForceSolver = new BruteForceSolver();
 		List<Board> solutions = bruteForceSolver.findAllSolutions(board);
-		Assert.assertEquals(1, solutions.size());
-		Assert.assertTrue(board.isLegal());
+		Assertions.assertEquals(1, solutions.size());
+		Assertions.assertTrue(board.isLegal());
 	}
 }

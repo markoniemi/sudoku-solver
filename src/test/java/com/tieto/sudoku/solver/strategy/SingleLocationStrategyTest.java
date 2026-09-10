@@ -1,8 +1,8 @@
 package com.tieto.sudoku.solver.strategy;
 
-import junit.framework.Assert;
+import org.junit.jupiter.api.Assertions;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.tieto.sudoku.Board;
 import com.tieto.sudoku.Box;
@@ -20,8 +20,8 @@ public class SingleLocationStrategyTest {
         }
         line.getCell(0).setCandidate(1);
         SingleLocationStrategy strategy = new SingleLocationStrategy();
-        Assert.assertEquals(1, strategy.applyToLine(line));
-        Assert.assertEquals(1, line.getCell(0).intValue());
+        Assertions.assertEquals(1, strategy.applyToLine(line));
+        Assertions.assertEquals(1, line.getCell(0).intValue());
         // test with line that has all candidates, except 1 in only single
         // location
         line = new Line();
@@ -35,8 +35,8 @@ public class SingleLocationStrategyTest {
         }
         line.getCell(0).setCandidate(1);
         strategy = new SingleLocationStrategy();
-        Assert.assertEquals(1, strategy.applyToLine(line));
-        Assert.assertEquals(1, line.getCell(0).intValue());
+        Assertions.assertEquals(1, strategy.applyToLine(line));
+        Assertions.assertEquals(1, line.getCell(0).intValue());
     }
 
     @Test
@@ -54,8 +54,8 @@ public class SingleLocationStrategyTest {
         // location
         box.getCell(0, 0).setCandidate(1);
         SingleLocationStrategy strategy = new SingleLocationStrategy();
-        Assert.assertEquals(1, strategy.applyToBox(box));
-        Assert.assertEquals(1, box.getCell(0, 0).intValue());
+        Assertions.assertEquals(1, strategy.applyToBox(box));
+        Assertions.assertEquals(1, box.getCell(0, 0).intValue());
     }
 
     @Test
@@ -70,7 +70,7 @@ public class SingleLocationStrategyTest {
         }
         board.getCell(0, 0).setCandidate(1);
         SingleLocationStrategy strategy = new SingleLocationStrategy();
-        Assert.assertEquals(1, strategy.apply(board));
-        Assert.assertEquals(1, board.getCell(0, 0).intValue());
+        Assertions.assertEquals(1, strategy.apply(board));
+        Assertions.assertEquals(1, board.getCell(0, 0).intValue());
     }
 }

@@ -6,8 +6,8 @@ import java.io.IOException;
 
 import lombok.extern.log4j.Log4j;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import com.tieto.sudoku.reader.SDKReader;
 import com.tieto.sudoku.solver.strategy.SingleCandidateStrategy;
@@ -26,7 +26,7 @@ public class BoardToTextConverterTest {
         strategy.calculateCandidates(board);
         BoardToTextConverter toTextConverter = new BoardToTextConverter();
         String boardAsText = toTextConverter.convert(board);
-        Assert.assertTrue(boardAsText.contains("|   |1  |   |1  |   |1  |   |   |1  |"));
+        Assertions.assertTrue(boardAsText.contains("|   |1  |   |1  |   |1  |   |   |1  |"));
         log.debug(boardAsText);
     }
 }

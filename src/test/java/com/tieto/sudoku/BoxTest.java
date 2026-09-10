@@ -1,8 +1,8 @@
 package com.tieto.sudoku;
 
-import junit.framework.Assert;
+import org.junit.jupiter.api.Assertions;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class BoxTest {
     @Test
@@ -18,7 +18,7 @@ public class BoxTest {
         }
         Line line = box.asLine();
         for (int i = 0; i < 9; i++) {
-            Assert.assertEquals(i + 1, line.getCell(i).getValue());
+            Assertions.assertEquals(i + 1, line.getCell(i).getValue());
         }
     }
 }

@@ -1,9 +1,9 @@
 package com.tieto.sudoku.solver.strategy;
 
-import junit.framework.Assert;
+import org.junit.jupiter.api.Assertions;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import com.tieto.sudoku.Board;
 import com.tieto.sudoku.Box;
@@ -18,8 +18,8 @@ public class StrategyTest {
 		DummyStrategy dummyStrategy = new DummyStrategy();
 		dummyStrategy.calculateLineCandidates(line);
 		for (int location = 1; location < 9; location++) {
-			Assert.assertFalse(line.getCell(location).isCandidate(1));
-			Assert.assertTrue(line.getCell(location).isCandidate(2));
+			Assertions.assertFalse(line.getCell(location).isCandidate(1));
+			Assertions.assertTrue(line.getCell(location).isCandidate(2));
 		}
 	}
 
@@ -32,16 +32,14 @@ public class StrategyTest {
 		for (int row = 0; row < 3; row++) {
 			for (int column = 0; column < 3; column++) {
 				if (!(row == 0 && column == 0)) {
-					Assert
-							.assertFalse(box.getCell(row, column).isCandidate(
-									1));
-					Assert.assertTrue(box.getCell(row, column).isCandidate(2));
+					Assertions.assertFalse(box.getCell(row, column).isCandidate(1));
+					Assertions.assertTrue(box.getCell(row, column).isCandidate(2));
 				}
 			}
 		}
 	}
 
-	@Ignore
+	@Disabled
 	@Test
 	public void testCalculateCandidates() {
 		Board board = new Board();
@@ -50,22 +48,20 @@ public class StrategyTest {
 		dummyStrategy.calculateCandidates(board);
 		Line line = board.getColumn(0);
 		for (int location = 1; location < 9; location++) {
-			Assert.assertFalse(line.getCell(location).isCandidate(1));
-			Assert.assertTrue(line.getCell(location).isCandidate(2));
+			Assertions.assertFalse(line.getCell(location).isCandidate(1));
+			Assertions.assertTrue(line.getCell(location).isCandidate(2));
 		}
 		line = board.getRow(9);
 		for (int location = 1; location < 9; location++) {
-			Assert.assertFalse(line.getCell(location).isCandidate(1));
-			Assert.assertTrue(line.getCell(location).isCandidate(2));
+			Assertions.assertFalse(line.getCell(location).isCandidate(1));
+			Assertions.assertTrue(line.getCell(location).isCandidate(2));
 		}
 		Box box = board.getBox(0);
 		for (int row = 0; row < 3; row++) {
 			for (int column = 0; column < 3; column++) {
 				if (!(row == 0 && column == 0)) {
-					Assert
-							.assertFalse(box.getCell(row, column).isCandidate(
-									1));
-					Assert.assertTrue(box.getCell(row, column).isCandidate(2));
+					Assertions.assertFalse(box.getCell(row, column).isCandidate(1));
+					Assertions.assertTrue(box.getCell(row, column).isCandidate(2));
 				}
 			}
 		}
