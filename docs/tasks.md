@@ -41,5 +41,5 @@ Use inline execution.
 39. [x] clean up the code, remove unused code, and improve code quality
 40. [x] test project after cleaning up the code, removing unused code, and improving code quality
 41. [x] commit changes to version control when tests pass
-42. [ ] push changes to remote branch, ask permission first
-43. [ ] validate that github actions run successfully
+42. [x] push changes to remote branch, ask permission first
+43. [x] validate that github actions run successfully
