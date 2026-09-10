@@ -12,14 +12,9 @@ public class RandomLocationGenerator implements LocationGenerator {
     }
 
     @Override
-    // TODO return a location which is empty
-    public Location nextLocation(/* Board board */) {
-        var row = random.nextInt(8);
-        var column = random.nextInt(8);
-        // if (board.getCell(location.row(),
-        // location.column()).intValue()==Cell.EMPTY) {
-        //
-        // }
+    public Location nextLocation() {
+        var row = random.nextInt(9);
+        var column = random.nextInt(9);
         return new Location(row, column);
     }
 }
