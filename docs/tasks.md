@@ -44,7 +44,6 @@ Use inline execution.
 42. [x] push changes to remote branch, ask permission first
 43. [x] validate that github actions run successfully
 44. [x] Use junit 5
-45. [ ] Use maven 3.9.6
-46. [ ] Use static imports for assertions
+46. [x] Use static imports for assertions
 47. [ ] Are there any other dependencies that need to be updated?
 48. [ ] Are there any ignored tests that need to be fixed?
