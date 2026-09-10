@@ -91,13 +91,9 @@ public class SudokuGenerator {
         return false;
     }
 
-    // TODO add removeRandomNumbersRecursive, so that the removing returns to
-    // the last valid solution
     private void removeRandomNumbers(Board board, int clueCount) {
         BruteForceSolver bruteForceSolver = new BruteForceSolver();
         StrategySolver strategySolver = new StrategySolver();
-        // List<Board> solutions;
-        // do {
         boolean ready = false;
         int count = Board.CELL_COUNT;
         do {
@@ -132,9 +128,6 @@ public class SudokuGenerator {
                 count--;
             }
         } while (!ready);
-        // solutions = bruteForceSolver.findAllSolutions(board.copy());
-        // logger.debug("solutions:" + solutions.size());
-        // } while (solutions.size() == 1);
     }
 
     public LocationGenerator getLocationGenerator() {
