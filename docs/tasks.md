@@ -30,7 +30,7 @@ Use inline execution.
 28. [x] commit changes to version control when tests pass
 29. [x] push changes to remote branch, ask permission first
 30. [x] validate that github actions run successfully
-31. [ ] create a plan to update project code to use new features of jdk21, add phases
+31. [x] create a plan to update project code to use new features of jdk21, add phases
 32. [ ] update project code to use new features of jdk21
 33. [ ] test project after updating project code to use new features of jdk21
 34. [ ] commit changes to version control when tests pass
