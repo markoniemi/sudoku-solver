@@ -38,12 +38,14 @@ public final class PointingPairsStrategy extends AbstractStrategy {
         List<CandidateLine> candidatesInLine = getCandidatesInLine(box,
                 direction);
         for (CandidateLine candidateLine : candidatesInLine) {
-            Line line = null;
+            Line line;
             if (direction == Direction.HORIZONTAL) {
                 line = board.getRow((row * Box.SIZE) + candidateLine.getLineNumber());
-            } else {
+            } else if (direction == Direction.VERTICAL) {
                 line = board.getColumn((row * Box.SIZE)
                         + candidateLine.getLineNumber());
+            } else {
+                continue;
             }
             // remove candidates on this line, except the ones that are in
             // the same box as the candidateInLine
