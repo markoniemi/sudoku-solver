@@ -29,7 +29,6 @@ public class BruteForceSolver implements Solver {
     /**
      * Recursive method for solving sudoku.
      * 
-     * @param board
      * @param currentIndex
      *            index of cell which is being solved. Index is 0..81.
      * @return
