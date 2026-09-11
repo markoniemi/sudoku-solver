@@ -16,30 +16,44 @@ public sealed abstract class AbstractStrategy implements Strategy permits
     public abstract String getName();
     public int apply(Board board) {
         calculateCandidates(board);
-        // go through all lines and boxes
         int changeCount = 0;
-        for (var rowNumber = 0; rowNumber < Line.LENGTH; rowNumber++) {
-            int changeCountInLine = applyToLine(board.getRow(rowNumber));
-            if (changeCountInLine > 0) {
-                changeCount = changeCount + changeCountInLine;
-                calculateCandidates(board);
-            }
-        }
-        for (var columnNumber = 0; columnNumber < Line.LENGTH; columnNumber++) {
-            int changeCountInLine = applyToLine(board.getColumn(columnNumber));
-            if (changeCountInLine > 0) {
-                changeCount = changeCount + changeCountInLine;
-                calculateCandidates(board);
-            }
-        }
-        for (var boxNumber = 0; boxNumber < Board.BOX_COUNT; boxNumber++) {
-            int changeCountInBox = applyToLine(board.getBox(boxNumber).asLine());
-            if (changeCountInBox > 0) {
-                changeCount = changeCount + changeCountInBox;
-                calculateCandidates(board);
-            }
-        }
+        changeCount += applyToAllLines(board, LineSupplier.ROWS);
+        changeCount += applyToAllLines(board, LineSupplier.COLUMNS);
+        changeCount += applyToAllLines(board, LineSupplier.BOXES);
         return changeCount;
+    }
+
+    private int applyToAllLines(Board board, LineSupplier supplier) {
+        int totalChanges = 0;
+        for (var index = 0; index < supplier.getCount(board); index++) {
+            Line line = supplier.getLine(board, index);
+            int changes = applyToLine(line);
+            if (changes > 0) {
+                totalChanges += changes;
+                calculateCandidates(board);
+            }
+        }
+        return totalChanges;
+    }
+
+    private interface LineSupplier {
+        Line getLine(Board board, int index);
+        int getCount(Board board);
+
+        LineSupplier ROWS = new LineSupplier() {
+            public Line getLine(Board board, int index) { return board.getRow(index); }
+            public int getCount(Board board) { return Line.LENGTH; }
+        };
+
+        LineSupplier COLUMNS = new LineSupplier() {
+            public Line getLine(Board board, int index) { return board.getColumn(index); }
+            public int getCount(Board board) { return Line.LENGTH; }
+        };
+
+        LineSupplier BOXES = new LineSupplier() {
+            public Line getLine(Board board, int index) { return board.getBox(index).asLine(); }
+            public int getCount(Board board) { return Board.BOX_COUNT; }
+        };
     }
 
 	public void calculateCandidates(Board board) {
