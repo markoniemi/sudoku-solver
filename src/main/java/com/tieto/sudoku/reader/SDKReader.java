@@ -15,7 +15,7 @@ import com.tieto.sudoku.Line;
  * Reads Sudoku Puzzle (.sdk) file into Board.
  * 
  * @see src/site/xhtml/sdkFile.xhtml
- * @see <a href="http://www.sudocue.net/fileformats.php">Sudo file formats</a>
+ * @see <a href="https://www.sudocue.net/fileformats.php">Sudo file formats</a>
  */
 public class SDKReader implements SudokuReader {
 	/**

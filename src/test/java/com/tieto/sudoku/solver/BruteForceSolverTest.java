@@ -19,7 +19,7 @@ import com.tieto.sudoku.reader.SDKReader;
 public class BruteForceSolverTest {
 
 	@Test
-	public void solve() throws FileNotFoundException, IOException {
+	public void solve() throws IOException {
 		// test with first two values as empty
 	    Board board = new SDKReader().read(new FileInputStream("src/test/resources/testData1.sdk"));
 		board.setValue(0, 0, Cell.EMPTY);
@@ -44,7 +44,7 @@ public class BruteForceSolverTest {
 
 	@Test
 //	@Disabled
-	public void solveWithEmptyBoard() throws FileNotFoundException, IOException {
+	public void solveWithEmptyBoard() throws IOException {
 	    Board board = new SDKReader().read(new FileInputStream("src/test/resources/testData1.sdk"));
 		BruteForceSolver bruteForceSolver = new BruteForceSolver();
 		boolean solved = bruteForceSolver.solve(board);
@@ -56,7 +56,7 @@ public class BruteForceSolverTest {
 	}
 
 	@Test
-	public void solveWithTestData3() throws FileNotFoundException, IOException {
+	public void solveWithTestData3() throws IOException {
 		Board board = new SDKReader().read(new FileInputStream("src/test/resources/testData3.sdk"));
 		BruteForceSolver bruteForceSolver = new BruteForceSolver();
 		boolean solved = bruteForceSolver.solve(board);
@@ -69,7 +69,7 @@ public class BruteForceSolverTest {
 	}
 
 	@Test
-	public void solveWithEasiest() throws FileNotFoundException, IOException {
+	public void solveWithEasiest() throws IOException {
 		Board board = new SDKReader().read(new FileInputStream("src/test/resources/easiest.sdk"));
 		BruteForceSolver bruteForceSolver = new BruteForceSolver();
 		boolean solved = bruteForceSolver.solve(board);
@@ -82,7 +82,7 @@ public class BruteForceSolverTest {
 	}
 
 	@Test
-	public void solveWithGentle() throws FileNotFoundException, IOException {
+	public void solveWithGentle() throws IOException {
 		Board board = new SDKReader().read(new FileInputStream("src/test/resources/gentle.sdk"));
 		BruteForceSolver bruteForceSolver = new BruteForceSolver();
 		boolean solved = bruteForceSolver.solve(board);
@@ -95,7 +95,7 @@ public class BruteForceSolverTest {
 	}
 
 	@Test
-	public void solveWithModerate() throws FileNotFoundException, IOException {
+	public void solveWithModerate() throws IOException {
 		Board board = new SDKReader().read(new FileInputStream("src/test/resources/moderate.sdk"));
 		BruteForceSolver bruteForceSolver = new BruteForceSolver();
 		boolean solved = bruteForceSolver.solve(board);
@@ -109,7 +109,7 @@ public class BruteForceSolverTest {
 
 	@Test
 	@Disabled
-	public void solveWithDaily() throws FileNotFoundException, IOException {
+	public void solveWithDaily() throws IOException {
 	    Board board = new SDKReader().read(new FileInputStream("src/test/resources/daily.sdk"));
 		BruteForceSolver bruteForceSolver = new BruteForceSolver();
 		boolean solved = bruteForceSolver.solve(board);
@@ -121,7 +121,7 @@ public class BruteForceSolverTest {
 	}
 
 	@Test
-	public void findAllSolutions() throws FileNotFoundException, IOException {
+	public void findAllSolutions() throws IOException {
 	    Board board = new SDKReader().read(new FileInputStream("src/test/resources/testData1.sdk"));
 		BruteForceSolver bruteForceSolver = new BruteForceSolver();
 		List<Board> solutions = bruteForceSolver.findAllSolutions(board);

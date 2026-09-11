@@ -51,7 +51,7 @@ public class BoardTest {
     }
 
     @Test
-    public void copy() throws FileNotFoundException, IOException {
+    public void copy() throws IOException {
         Board board = new SDKReader().read(new FileInputStream(
                 "src/test/resources/testData1.sdk"));
         Board copyOfBoard = board.copy();
@@ -68,7 +68,7 @@ public class BoardTest {
     }
 
     @Test
-    public void isLegal() throws FileNotFoundException, IOException {
+    public void isLegal() throws IOException {
         Board board = new SDKReader().read(new FileInputStream(
                 "src/test/resources/testData1.sdk"));
         assertTrue(board.isLegal());

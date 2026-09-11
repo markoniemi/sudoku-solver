@@ -48,7 +48,7 @@ public class SingleCandidateStrategyTest {
 	}
 
 	@Test
-	public void testSingleCandidate() throws FileNotFoundException, IOException {
+	public void testSingleCandidate() throws IOException {
 	    Board board = new SDKReader().read(new FileInputStream("src/test/resources/testData1.sdk"));
 		board.setValue(0, 0, Cell.EMPTY);
 		SingleCandidateStrategy strategy = new SingleCandidateStrategy();

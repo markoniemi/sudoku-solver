@@ -18,7 +18,7 @@ public class BoardToTextConverterTest {
      * This test is more suited for mk.1 eyeball testing.
      */
     @Test
-    public void convert() throws FileNotFoundException, IOException {
+    public void convert() throws IOException {
         Board board = new SDKReader().read(new FileInputStream(
                 "src/test/resources/mild.sdk"));
         // use a strategy class to calculate candidates

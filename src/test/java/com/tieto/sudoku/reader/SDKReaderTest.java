@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class SDKReaderTest {
     @Test
-    public void read() throws FileNotFoundException, IOException {
+    public void read() throws IOException {
         SudokuReader sdkReader = new SDKReader();
         InputStream inputStream = new FileInputStream("src/test/resources/test.sdk");
         sdkReader.read(inputStream);

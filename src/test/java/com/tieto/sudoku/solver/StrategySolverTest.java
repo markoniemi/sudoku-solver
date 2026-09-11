@@ -18,7 +18,7 @@ import com.tieto.sudoku.reader.SDKReader;
 public class StrategySolverTest {
 
 	@Test
-	public void testSolveEasiest() throws FileNotFoundException, IOException {
+	public void testSolveEasiest() throws IOException {
 		// solve easiest board, which also has a solved version in test data
         Board board = new SDKReader().read(new FileInputStream("src/test/resources/easiest.sdk"));
 		StrategySolver strategySolver = new StrategySolver();
@@ -33,7 +33,7 @@ public class StrategySolverTest {
 	}
 
 	@Test
-	public void testSolveGentle() throws FileNotFoundException, IOException {
+	public void testSolveGentle() throws IOException {
 		// solve gentle board, use BruteForceSolver to obtain solved board
 	    Board board = new SDKReader().read(new FileInputStream("src/test/resources/gentle.sdk"));
 		// log.debug("gentle before solving\n" +
@@ -56,7 +56,7 @@ public class StrategySolverTest {
 
 	@Test
 	@Disabled
-	public void testSolveModerate() throws FileNotFoundException, IOException {
+	public void testSolveModerate() throws IOException {
 		// solve moderate board, use BruteForceSolver to obtain solved board
 	    Board board = new SDKReader().read(new FileInputStream("src/test/resources/moderate.sdk"));
 		StrategySolver strategySolver = new StrategySolver();
@@ -78,7 +78,7 @@ public class StrategySolverTest {
 	}
 
 	@Test
-	public void testSolveMild() throws FileNotFoundException, IOException {
+	public void testSolveMild() throws IOException {
 		// solve mild board, use BruteForceSolver to obtain solved board
 	    Board board = new SDKReader().read(new FileInputStream("src/test/resources/mild.sdk"));
 		StrategySolver strategySolver = new StrategySolver();
