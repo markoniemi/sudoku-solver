@@ -101,19 +101,22 @@ public final class NakedGroupStrategy extends AbstractStrategy {
 				nakedGroupLocations, line);
 	}
 
-	// TODO calculate the count of changes
 	private int removeNonNakedGroupCandidates(List<Integer> allCandidates,
 			List<Integer> nakedGroupLocations, Line line) {
+		int changeCount = 0;
 		for (var location = 0; location < Line.LENGTH; location++) {
 			Cell cell = line.getCell(location);
 			if (!nakedGroupLocations.contains(location)) {
+				int countBefore = cell.countCandidates();
 				cell.cleanCandidates();
 				for (var candidate : allCandidates) {
 					cell.setCandidate(candidate);
 				}
+				int countAfter = cell.countCandidates();
+				changeCount += countBefore - countAfter;
 			}
 		}
-		return 0;
+		return changeCount;
 	}
 
 	private List<Integer> getAllCandidatesFromList(
