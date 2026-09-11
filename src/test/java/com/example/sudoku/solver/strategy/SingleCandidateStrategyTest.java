@@ -1,0 +1,59 @@
+package com.example.sudoku.solver.strategy;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import com.example.sudoku.Board;
+import com.example.sudoku.Box;
+import com.example.sudoku.Cell;
+import com.example.sudoku.Line;
+import com.example.sudoku.reader.SDKReader;
+
+public class SingleCandidateStrategyTest {
+	@Test
+	public void testSingleCandidateInLine() {
+		Line line = new Line();
+		for (int location = 0; location < 9; location++) {
+			line.setValue(location, location + 1);
+		}
+		// fill all but one
+		line.setValue(8, Cell.EMPTY);
+		SingleCandidateStrategy strategy = new SingleCandidateStrategy();
+		strategy.calculateLineCandidates(line);
+		assertEquals(1, strategy.applyToLine(line));
+		assertEquals(9, line.getCell(8).intValue());
+	}
+
+	@Test
+	public void testSingleCandidateInBox() {
+		Box box = new Box();
+		// fill all but one
+		int value = 1;
+		for (int row = 0; row < 3; row++) {
+			for (int column = 0; column < 3; column++) {
+				box.setValue(row, column, value);
+				value++;
+			}
+		}
+		box.setValue(2, 2, Cell.EMPTY);
+		SingleCandidateStrategy strategy = new SingleCandidateStrategy();
+		strategy.calculateBoxCandidates(box);
+		assertEquals(1, strategy.applyToBox(box));
+		assertEquals(9, box.getCell(2, 2).intValue());
+	}
+
+	@Test
+	public void testSingleCandidate() throws IOException {
+	    Board board = new SDKReader().read(new FileInputStream("src/test/resources/testData1.sdk"));
+		board.setValue(0, 0, Cell.EMPTY);
+		SingleCandidateStrategy strategy = new SingleCandidateStrategy();
+		strategy.calculateCandidates(board);
+		assertEquals(1, strategy.apply(board));
+		assertEquals(9, board.getCell(0, 0).intValue());
+	}
+}

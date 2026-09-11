@@ -1,0 +1,101 @@
+package com.example.sudoku.solver;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import static org.junit.jupiter.api.Assertions.*;
+import lombok.extern.log4j.Log4j;
+
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+
+import com.example.sudoku.Board;
+import com.example.sudoku.BoardToTextConverter;
+import com.example.sudoku.reader.SDKReader;
+
+@Log4j
+public class StrategySolverTest {
+
+	@Test
+	public void testSolveEasiest() throws IOException {
+		// solve easiest board, which also has a solved version in test data
+        Board board = new SDKReader().read(new FileInputStream("src/test/resources/easiest.sdk"));
+		StrategySolver strategySolver = new StrategySolver();
+		assertTrue(strategySolver.solve(board));
+		Board solvedBoard = new SDKReader().read(new FileInputStream("src/test/resources/easiestSolved.sdk"));
+		for (int row = 0; row < 9; row++) {
+			for (int column = 0; column < 9; column++) {
+				assertEquals(solvedBoard.getCell(row,column).getValue(), board
+						.getCell(row, column).intValue());
+			}
+		}
+	}
+
+	@Test
+	public void testSolveGentle() throws IOException {
+		// solve gentle board, use BruteForceSolver to obtain solved board
+	    Board board = new SDKReader().read(new FileInputStream("src/test/resources/gentle.sdk"));
+		// log.debug("gentle before solving\n" +
+		// board.printBoardWithCandidates());
+		StrategySolver strategySolver = new StrategySolver();
+		boolean solved = strategySolver.solve(board);
+		if (!solved) {
+		    BoardToTextConverter toTextConverter = new BoardToTextConverter();
+			log.debug("gentle" + toTextConverter.convert(board));
+		}
+		assertTrue(solved);
+        Board solvedBoard = new SDKReader().read(new FileInputStream("src/test/resources/gentleSolved.sdk"));
+        for (int row = 0; row < 9; row++) {
+            for (int column = 0; column < 9; column++) {
+                assertEquals(solvedBoard.getCell(row,column).getValue(), board
+                        .getCell(row, column).intValue());
+            }
+        }
+	}
+
+	@Test
+	@Disabled
+	public void testSolveModerate() throws IOException {
+		// solve moderate board, use BruteForceSolver to obtain solved board
+	    Board board = new SDKReader().read(new FileInputStream("src/test/resources/moderate.sdk"));
+		StrategySolver strategySolver = new StrategySolver();
+		boolean solved = strategySolver.solve(board);
+		if (!solved) {
+            BoardToTextConverter toTextConverter = new BoardToTextConverter();
+            log.debug("moderate" + toTextConverter.convert(board));
+		}
+		assertTrue(solved);
+		BruteForceSolver bruteForceSolver = new BruteForceSolver();
+		Board solvedBoard = new SDKReader().read(new FileInputStream("src/test/resources/moderate.sdk"));
+		bruteForceSolver.solve(solvedBoard);
+		for (int row = 0; row < 9; row++) {
+			for (int column = 0; column < 9; column++) {
+				assertEquals(solvedBoard.getCell(row, column)
+						.intValue(), board.getCell(row, column).intValue());
+			}
+		}
+	}
+
+	@Test
+	public void testSolveMild() throws IOException {
+		// solve mild board, use BruteForceSolver to obtain solved board
+	    Board board = new SDKReader().read(new FileInputStream("src/test/resources/mild.sdk"));
+		StrategySolver strategySolver = new StrategySolver();
+		boolean solved = strategySolver.solve(board);
+		if (!solved) {
+            BoardToTextConverter toTextConverter = new BoardToTextConverter();
+            log.debug("mild" + toTextConverter.convert(board));
+		}
+		assertTrue(solved);
+		BruteForceSolver bruteForceSolver = new BruteForceSolver();
+		Board solvedBoard = new SDKReader().read(new FileInputStream("src/test/resources/mild.sdk"));
+		bruteForceSolver.solve(solvedBoard);
+		for (int row = 0; row < 9; row++) {
+			for (int column = 0; column < 9; column++) {
+				assertEquals(solvedBoard.getCell(row, column)
+						.intValue(), board.getCell(row, column).intValue());
+			}
+		}
+	}
+}
