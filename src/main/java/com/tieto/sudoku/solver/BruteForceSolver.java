@@ -21,7 +21,7 @@ public class BruteForceSolver implements Solver {
 
     public List<Board> findAllSolutions(Board board) {
         this.board = board;
-        this.solutions = new ArrayList<Board>();
+        this.solutions = new ArrayList<>();
         findAllSolutions(0);
         return solutions;
     }

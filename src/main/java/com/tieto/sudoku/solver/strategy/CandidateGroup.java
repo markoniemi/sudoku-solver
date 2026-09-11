@@ -12,7 +12,7 @@ import com.tieto.sudoku.Line;
 @Data
 @EqualsAndHashCode(of = "location")
 class CandidateGroup {
-	private List<Integer> candidates = new ArrayList<Integer>();
+	private List<Integer> candidates = new ArrayList<>();
 	private int location;
 
 	@Override

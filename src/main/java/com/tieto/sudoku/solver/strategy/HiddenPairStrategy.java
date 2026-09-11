@@ -76,7 +76,7 @@ public final class HiddenPairStrategy extends AbstractStrategy {
     }
 
     public List<LinePair> findPairs(Line line) {
-        List<LinePair> pairs = new ArrayList<LinePair>();
+        List<LinePair> pairs = new ArrayList<>();
         LinePair pair = new LinePair();
         for (var candidate = 1; candidate < 10; candidate++) {
             int candidateCount = 0;

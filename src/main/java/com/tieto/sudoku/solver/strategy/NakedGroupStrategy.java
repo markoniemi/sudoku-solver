@@ -39,7 +39,7 @@ public final class NakedGroupStrategy extends AbstractStrategy {
 	 * candidate. Then remove extra candidates.
 	 */
 	List<CandidateGroup> findCandidateGroups(Line line) {
-		List<CandidateGroup> candidateGroups = new ArrayList<CandidateGroup>();
+		List<CandidateGroup> candidateGroups = new ArrayList<>();
 		for (var location = 0; location < Line.LENGTH; location++) {
 			Cell cell = line.getCell(location);
 			if (!cell.isClue() && cell.countCandidates() <= groupSize
@@ -120,7 +120,7 @@ public final class NakedGroupStrategy extends AbstractStrategy {
 
 	private List<Integer> getAllCandidatesFromList(
 			List<CandidateGroup> candidateGroups) {
-		Set<Integer> allCandidates = new HashSet<Integer>();
+		Set<Integer> allCandidates = new HashSet<>();
 		for (CandidateGroup candidateGroup : candidateGroups) {
 			allCandidates.addAll(candidateGroup.getCandidates());
 		}
@@ -129,7 +129,7 @@ public final class NakedGroupStrategy extends AbstractStrategy {
 
 	private List<Integer> getAllLocationsFromList(
 			List<CandidateGroup> candidateGroups) {
-		Set<Integer> allLocations = new HashSet<Integer>();
+		Set<Integer> allLocations = new HashSet<>();
 		for (CandidateGroup candidateGroup : candidateGroups) {
 			allLocations.add(candidateGroup.getLocation());
 		}
