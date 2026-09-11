@@ -46,4 +46,6 @@ Use inline execution.
 44. [x] Use junit 5
 46. [x] Use static imports for assertions
 47. [x] Are there any other dependencies that need to be updated? (Phase 1: removed dead code)
-48. [ ] Are there any ignored tests that need to be fixed?
+48. [x] Are there any ignored tests that need to be fixed?
+49. [x] Refactor package name to com.example.sudoku.
+50. [ ] Use lombok to reduce boilerplate code.
