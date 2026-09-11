@@ -3,13 +3,13 @@ package com.example.sudoku.solver;
 import java.util.ArrayList;
 import java.util.List;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 import com.example.sudoku.Board;
 import com.example.sudoku.Cell;
 import com.example.sudoku.Line;
 
-@Log4j
+@Slf4j
 public class BruteForceSolver implements Solver {
     private Board board;
     private List<Board> solutions = null;

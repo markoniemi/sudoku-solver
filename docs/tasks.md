@@ -48,5 +48,5 @@ Use inline execution.
 47. [x] Are there any other dependencies that need to be updated? (Phase 1: removed dead code)
 48. [x] Are there any ignored tests that need to be fixed?
 49. [x] Refactor package name to com.example.sudoku.
-50. [ ] Use lombok to reduce boilerplate code.
-51. [ ] Use 
+50. [x] Use lombok to reduce boilerplate code.
+51. [x] Use Slf4j. Replace Log4j annotations with Slf4j annotations. Replace System.out.println with log.

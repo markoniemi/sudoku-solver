@@ -2,7 +2,7 @@ package com.example.sudoku.generator;
 
 import java.util.List;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
 import com.google.common.base.Preconditions;
 import com.example.sudoku.Board;
@@ -11,7 +11,7 @@ import com.example.sudoku.Location;
 import com.example.sudoku.solver.BruteForceSolver;
 import com.example.sudoku.solver.StrategySolver;
 
-@Log4j
+@Slf4j
 public class SudokuGenerator {
     public static final int CLUE_COUNT = 40;
     public static final int SEED_COUNT = 10;
@@ -21,7 +21,7 @@ public class SudokuGenerator {
     public static void main(String args[]) {
         SudokuGenerator generator = new SudokuGenerator();
         Board board = generator.generate();
-        log.debug(board);
+        log.debug("{}", board);
     }
 
     public Board generate() {
@@ -70,7 +70,7 @@ public class SudokuGenerator {
             log.debug("generateSeedRecursive done");
             return true;
         }
-        log.debug("generateSeedRecursive.count: " + count);
+        log.debug("generateSeedRecursive.count: {}", count);
         BruteForceSolver bruteForceSolver = new BruteForceSolver();
         Location location = locationGenerator.nextLocation();
         int row = location.row();
@@ -97,7 +97,7 @@ public class SudokuGenerator {
         boolean ready = false;
         int count = Board.CELL_COUNT;
         do {
-            log.debug("count:" + count);
+            log.debug("count: {}", count);
             int value = 0;
             int row;
             int column;

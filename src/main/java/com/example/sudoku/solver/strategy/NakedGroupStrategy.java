@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 
 import com.example.sudoku.Cell;
@@ -50,7 +49,7 @@ public final class NakedGroupStrategy extends AbstractStrategy {
 				candidateGroups.add(candidateGroup);
 			}
 		}
-		log.debug(""+candidateGroups);
+		log.debug("{}", candidateGroups);
 		removeExtraCandidates(candidateGroups);
 		return candidateGroups;
 	}
