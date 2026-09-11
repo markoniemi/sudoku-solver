@@ -45,5 +45,5 @@ Use inline execution.
 43. [x] validate that github actions run successfully
 44. [x] Use junit 5
 46. [x] Use static imports for assertions
-47. [ ] Are there any other dependencies that need to be updated?
+47. [x] Are there any other dependencies that need to be updated? (Phase 1: removed dead code)
 48. [ ] Are there any ignored tests that need to be fixed?
