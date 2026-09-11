@@ -105,7 +105,7 @@ public final class NakedPairStrategy extends AbstractStrategy {
         CandidatePair pair = new CandidatePair();
         for (var location = 0; location < Line.LENGTH; location++) {
             int candidateCount = 0;
-            for (var candidate = 1; candidate < 10; candidate++) {
+            for (var candidate = 1; candidate <= Line.LENGTH; candidate++) {
                 if (line.getCell(location).isCandidate(candidate)) {
                     pair.setLocation(location);
                     candidateCount++;

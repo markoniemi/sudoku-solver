@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import com.google.common.base.Preconditions;
 import com.example.sudoku.Board;
 import com.example.sudoku.Cell;
+import com.example.sudoku.Line;
 import com.example.sudoku.Location;
 import com.example.sudoku.solver.BruteForceSolver;
 import com.example.sudoku.solver.StrategySolver;
@@ -75,7 +76,7 @@ public class SudokuGenerator {
         Location location = locationGenerator.nextLocation();
         int row = location.row();
         int column = location.column();
-        for (var value = 1; value < 10; value++) {
+        for (var value = 1; value <= Line.LENGTH; value++) {
             board.setValue(row, column, value);
             board.getCell(row, column).setClue(true);
             if (board.isLegal()) {

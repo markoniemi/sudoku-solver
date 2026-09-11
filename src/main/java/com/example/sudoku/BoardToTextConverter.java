@@ -63,7 +63,7 @@ public class BoardToTextConverter implements Converter<Board, String> {
     private void appendCandidates(StringBuilder line1, StringBuilder line2,
             StringBuilder line3, Cell cell) {
         StringBuilder currentLine = null;
-        for (var candidate = 1; candidate < 10; candidate++) {
+        for (var candidate = 1; candidate <= Line.LENGTH; candidate++) {
             if (candidate < 4) {
                 currentLine = line1;
             } else if (candidate < 7) {

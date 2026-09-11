@@ -38,7 +38,7 @@ public class SDKReader implements SudokuReader {
 				throw new StreamCorruptedException("line is too short:"
 						+ textLine);
 			}
-			for (var column = 0; column < 9; column++) {
+			for (var column = 0; column < Line.LENGTH; column++) {
 				data[row][column] = readValueFromLine(textLine, column);
 			}
 			row++;

@@ -8,7 +8,7 @@ public final class SingleLocationStrategy extends AbstractStrategy{
 
 	public int applyToLine(Line line) {
 		int changeCount = 0;
-		for (var candidate = 1; candidate < 10; candidate++) {
+		for (var candidate = 1; candidate <= Line.LENGTH; candidate++) {
 			int locationCount = 0;
 			int foundLocation = 0;
 			for (var location = 0; location < Line.LENGTH; location++) {

@@ -92,7 +92,7 @@ public final class PointingPairsStrategy extends AbstractStrategy {
     protected List<CandidateLine> getCandidatesInLine(Box box,
             Direction direction) {
         List<CandidateLine> candidateLines = new ArrayList<CandidateLine>();
-        for (var candidate = 1; candidate < 10; candidate++) {
+        for (var candidate = 1; candidate <= Line.LENGTH; candidate++) {
             for (var row = 0; row < Box.SIZE; row++) {
                 if (lineHasCandidate(box, row, candidate, direction)) {
                     boolean isCandidatesInLine = true;

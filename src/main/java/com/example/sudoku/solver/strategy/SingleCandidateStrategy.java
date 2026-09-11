@@ -12,7 +12,7 @@ public final class SingleCandidateStrategy extends AbstractStrategy {
             int candidateCount = 0;
             int foundCandidate = Cell.EMPTY;
             Cell cell = line.getCell(location);
-            for (var candidate = 1; candidate < 10; candidate++) {
+            for (var candidate = 1; candidate <= Line.LENGTH; candidate++) {
                 if (cell.intValue() == Cell.EMPTY
                         && cell.isCandidate(candidate)) {
                     candidateCount++;

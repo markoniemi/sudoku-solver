@@ -55,7 +55,7 @@ public sealed abstract class AbstractStrategy implements Strategy permits
 	}
 
 	public void calculateLineCandidates(Line line) {
-		for (var candidate = 1; candidate < 10; candidate++) {
+		for (var candidate = 1; candidate <= Line.LENGTH; candidate++) {
 			for (var location = 0; location < Line.LENGTH; location++) {
 				if (line.getCell(location).intValue() == candidate) {
 					for (var k = 0; k < Line.LENGTH; k++) {
@@ -67,7 +67,7 @@ public sealed abstract class AbstractStrategy implements Strategy permits
 	}
 
 	public void calculateBoxCandidates(Box box) {
-		for (var candidate = 1; candidate < 10; candidate++) {
+		for (var candidate = 1; candidate <= Line.LENGTH; candidate++) {
 			for (var row = 0; row < Box.SIZE; row++) {
 				for (var column = 0; column < Box.SIZE; column++) {
 					if (box.getCell(row, column).intValue() == candidate) {

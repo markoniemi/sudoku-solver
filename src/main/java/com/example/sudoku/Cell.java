@@ -55,14 +55,14 @@ public class Cell {
 	}
 
 	public void resetCandidates() {
-		for (var candidate = 0; candidate < Line.LENGTH; candidate++) {
-			candidates.add(candidate + 1);
+		for (var candidate = 1; candidate <= Line.LENGTH; candidate++) {
+			candidates.add(candidate);
 		}
 	}
 
 	public void cleanCandidates() {
-		for (var candidate = 0; candidate < Line.LENGTH; candidate++) {
-			removeCandidate(candidate + 1);
+		for (var candidate = 1; candidate <= Line.LENGTH; candidate++) {
+			removeCandidate(candidate);
 		}
 	}
 
