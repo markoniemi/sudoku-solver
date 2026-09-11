@@ -1,6 +1,8 @@
 package com.example.sudoku;
 
+import lombok.Getter;
 
+@Getter
 public class Board {
     /**
      * Number of cell in board.

@@ -1,6 +1,8 @@
 package com.example.sudoku;
 
+import lombok.Getter;
 
+@Getter
 public class Line {
     public static final int LENGTH = 9;
 	private Cell data[] = new Cell[LENGTH];

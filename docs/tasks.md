@@ -49,3 +49,4 @@ Use inline execution.
 48. [x] Are there any ignored tests that need to be fixed?
 49. [x] Refactor package name to com.example.sudoku.
 50. [ ] Use lombok to reduce boilerplate code.
+51. [ ] Use 
