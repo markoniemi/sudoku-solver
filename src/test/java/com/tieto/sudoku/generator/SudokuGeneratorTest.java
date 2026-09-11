@@ -77,16 +77,4 @@ public class SudokuGeneratorTest {
         }
         assertTrue(solved);
     }
-
-    private int countValues(Board board) {
-        int valueCount = 0;
-        for (int row = 0; row < 9; row++) {
-            for (int column = 0; column < 9; column++) {
-                if (board.getCell(row, column).intValue() != Cell.EMPTY) {
-                    valueCount++;
-                }
-            }
-        }
-        return valueCount;
-    }
 }

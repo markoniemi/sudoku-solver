@@ -19,12 +19,12 @@ public class BoardToTextConverter implements Converter<Board, String> {
         stringBuilder.append(LINE_BREAK);
         stringBuilder.append(HORIZONTAL_LINE);
         for (var row = 0; row < Line.LENGTH; row++) {
-            appendLine(board, stringBuilder, board.getRow(row));
+            appendLine(stringBuilder, board.getRow(row));
         }
         return stringBuilder.toString();
     }
 
-    private void appendLine(Board board, StringBuilder stringBuilder, Line line) {
+    private void appendLine(StringBuilder stringBuilder, Line line) {
         StringBuilder line1 = new StringBuilder();
         StringBuilder line2 = new StringBuilder();
         StringBuilder line3 = new StringBuilder();

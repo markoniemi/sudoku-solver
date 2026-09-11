@@ -7,9 +7,6 @@ public class OrderedLocationGenerator implements LocationGenerator {
     private int index = 0;
     private int step = 4;
 
-    public OrderedLocationGenerator() {
-    }
-
     public OrderedLocationGenerator(int step) {
         this.step = step;
     }

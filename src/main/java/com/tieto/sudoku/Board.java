@@ -64,22 +64,6 @@ public class Board {
         return box;
     }
 
-    /**
-     * Returns a 3x3 box from board.
-     * 
-     * @param boxNumber
-     * @return
-     */
-    public Box getBox(int row, int column) {
-        Box box = new Box();
-        for (var i = 0; i < Box.SIZE; i++) {
-            for (var j = 0; j < Box.SIZE; j++) {
-                box.setCell(i, j,
-                        data[(row * Box.SIZE) + i][(column * Box.SIZE) + j]);
-            }
-        }
-        return box;
-    }
 
     public boolean isLegal() {
         for (var rowNumber = 0; rowNumber < Line.LENGTH; rowNumber++) {
@@ -171,14 +155,6 @@ public class Board {
 
     public Cell getCell(int row, int column) {
         return data[row][column];
-    }
-
-    public void setData(int[][] data) {
-        for (var i = 0; i < data.length; i++) {
-            for (var j = 0; j < data[i].length; j++) {
-                this.data[i][j] = new Cell(data[i][j]);
-            }
-        }
     }
 
     public Board copy() {

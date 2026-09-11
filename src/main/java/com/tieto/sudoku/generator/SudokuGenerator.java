@@ -130,10 +130,6 @@ public class SudokuGenerator {
         } while (!ready);
     }
 
-    public LocationGenerator getLocationGenerator() {
-        return locationGenerator;
-    }
-
     public void setLocationGenerator(LocationGenerator locationGenerator) {
         this.locationGenerator = locationGenerator;
     }
