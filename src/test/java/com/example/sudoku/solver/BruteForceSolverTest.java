@@ -108,7 +108,7 @@ public class BruteForceSolverTest {
 	}
 
 	@Test
-	@Disabled
+	@Disabled("Performance test - takes too long")
 	public void solveWithDaily() throws IOException {
 	    Board board = new SDKReader().read(new FileInputStream("src/test/resources/daily.sdk"));
 		BruteForceSolver bruteForceSolver = new BruteForceSolver();

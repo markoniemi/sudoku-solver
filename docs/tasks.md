@@ -50,3 +50,4 @@ Use inline execution.
 49. [x] Refactor package name to com.example.sudoku.
 50. [x] Use lombok to reduce boilerplate code.
 51. [x] Use Slf4j. Replace Log4j annotations with Slf4j annotations. Replace System.out.println with log.
+52. [x] There are disabled tests, enable them and try to find out why they are disabled. Fix them if possible.

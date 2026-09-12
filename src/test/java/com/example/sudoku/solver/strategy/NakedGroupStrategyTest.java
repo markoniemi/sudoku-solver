@@ -11,7 +11,12 @@ import org.junit.jupiter.api.Test;
 import com.example.sudoku.Box;
 import com.example.sudoku.Line;
 
-@Disabled
+/**
+ * Tests for NakedGroupStrategy. Currently disabled due to test data setup issues.
+ * The test data does not properly trigger naked group conditions for the strategy to work.
+ * Tests need to be refactored with proper board state and candidate setup.
+ */
+@Disabled("Test data setup does not trigger naked group conditions properly")
 public class NakedGroupStrategyTest {
         
     @Test

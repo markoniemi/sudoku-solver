@@ -55,7 +55,7 @@ public class StrategySolverTest {
 	}
 
 	@Test
-	@Disabled
+	@Disabled("Incomplete puzzle not solvable by strategy solver alone")
 	public void testSolveModerate() throws IOException {
 		// solve moderate board, use BruteForceSolver to obtain solved board
 	    Board board = new SDKReader().read(new FileInputStream("src/test/resources/moderate.sdk"));

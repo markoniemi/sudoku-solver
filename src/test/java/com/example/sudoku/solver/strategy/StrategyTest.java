@@ -39,7 +39,6 @@ public class StrategyTest {
 		}
 	}
 
-	@Disabled
 	@Test
 	public void testCalculateCandidates() {
 		Board board = new Board();
@@ -47,12 +46,12 @@ public class StrategyTest {
 		DummyStrategy dummyStrategy = new DummyStrategy();
 		dummyStrategy.calculateCandidates(board);
 		Line line = board.getColumn(0);
-		for (int location = 1; location < 9; location++) {
+		for (int location = 1; location < Line.LENGTH; location++) {
 			assertFalse(line.getCell(location).isCandidate(1));
 			assertTrue(line.getCell(location).isCandidate(2));
 		}
-		line = board.getRow(9);
-		for (int location = 1; location < 9; location++) {
+		line = board.getRow(0);
+		for (int location = 1; location < Line.LENGTH; location++) {
 			assertFalse(line.getCell(location).isCandidate(1));
 			assertTrue(line.getCell(location).isCandidate(2));
 		}
